@@ -1,0 +1,9 @@
+C:\Users\CC\Desktop\DBlab\Dblab\Dblab\bin\Debug\Dblab.exe.config
+C:\Users\CC\Desktop\DBlab\Dblab\Dblab\bin\Debug\Dblab.exe
+C:\Users\CC\Desktop\DBlab\Dblab\Dblab\bin\Debug\Dblab.pdb
+C:\Users\CC\Desktop\DBlab\Dblab\Dblab\obj\Debug\Dblab.Evaluation.resources
+C:\Users\CC\Desktop\DBlab\Dblab\Dblab\obj\Debug\Dblab.Properties.Resources.resources
+C:\Users\CC\Desktop\DBlab\Dblab\Dblab\obj\Debug\Dblab.csproj.GenerateResource.cache
+C:\Users\CC\Desktop\DBlab\Dblab\Dblab\obj\Debug\Dblab.csproj.CoreCompileInputs.cache
+C:\Users\CC\Desktop\DBlab\Dblab\Dblab\obj\Debug\Dblab.exe
+C:\Users\CC\Desktop\DBlab\Dblab\Dblab\obj\Debug\Dblab.pdb
