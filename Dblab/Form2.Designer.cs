@@ -46,12 +46,13 @@
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.ShowData = new System.Windows.Forms.Button();
+			this.Back = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// Save
 			// 
-			this.Save.Location = new System.Drawing.Point(31, 360);
+			this.Save.Location = new System.Drawing.Point(370, 182);
 			this.Save.Name = "Save";
 			this.Save.Size = new System.Drawing.Size(75, 23);
 			this.Save.TabIndex = 0;
@@ -61,7 +62,7 @@
 			// 
 			// Delete
 			// 
-			this.Delete.Location = new System.Drawing.Point(237, 360);
+			this.Delete.Location = new System.Drawing.Point(620, 182);
 			this.Delete.Name = "Delete";
 			this.Delete.Size = new System.Drawing.Size(75, 23);
 			this.Delete.TabIndex = 2;
@@ -71,7 +72,7 @@
 			// 
 			// textBox1
 			// 
-			this.textBox1.Location = new System.Drawing.Point(152, 70);
+			this.textBox1.Location = new System.Drawing.Point(191, 70);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(116, 20);
 			this.textBox1.TabIndex = 3;
@@ -79,7 +80,7 @@
 			// 
 			// textBox2
 			// 
-			this.textBox2.Location = new System.Drawing.Point(152, 112);
+			this.textBox2.Location = new System.Drawing.Point(191, 106);
 			this.textBox2.Name = "textBox2";
 			this.textBox2.Size = new System.Drawing.Size(116, 20);
 			this.textBox2.TabIndex = 4;
@@ -87,7 +88,7 @@
 			// 
 			// textBox3
 			// 
-			this.textBox3.Location = new System.Drawing.Point(152, 147);
+			this.textBox3.Location = new System.Drawing.Point(191, 147);
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(116, 20);
 			this.textBox3.TabIndex = 5;
@@ -95,14 +96,14 @@
 			// 
 			// textBox4
 			// 
-			this.textBox4.Location = new System.Drawing.Point(152, 189);
+			this.textBox4.Location = new System.Drawing.Point(589, 70);
 			this.textBox4.Name = "textBox4";
 			this.textBox4.Size = new System.Drawing.Size(116, 20);
 			this.textBox4.TabIndex = 6;
 			// 
 			// textBox5
 			// 
-			this.textBox5.Location = new System.Drawing.Point(152, 227);
+			this.textBox5.Location = new System.Drawing.Point(589, 107);
 			this.textBox5.Name = "textBox5";
 			this.textBox5.Size = new System.Drawing.Size(116, 20);
 			this.textBox5.TabIndex = 7;
@@ -110,15 +111,16 @@
 			// 
 			// textBox6
 			// 
-			this.textBox6.Location = new System.Drawing.Point(152, 271);
+			this.textBox6.Location = new System.Drawing.Point(589, 138);
 			this.textBox6.Name = "textBox6";
 			this.textBox6.Size = new System.Drawing.Size(116, 20);
 			this.textBox6.TabIndex = 8;
+			this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
 			// 
 			// RegNo
 			// 
 			this.RegNo.AutoSize = true;
-			this.RegNo.Location = new System.Drawing.Point(36, 77);
+			this.RegNo.Location = new System.Drawing.Point(76, 73);
 			this.RegNo.Name = "RegNo";
 			this.RegNo.Size = new System.Drawing.Size(41, 13);
 			this.RegNo.TabIndex = 10;
@@ -127,7 +129,7 @@
 			// FirstName
 			// 
 			this.FirstName.AutoSize = true;
-			this.FirstName.Location = new System.Drawing.Point(36, 119);
+			this.FirstName.Location = new System.Drawing.Point(76, 110);
 			this.FirstName.Name = "FirstName";
 			this.FirstName.Size = new System.Drawing.Size(57, 13);
 			this.FirstName.TabIndex = 11;
@@ -136,7 +138,7 @@
 			// LastName
 			// 
 			this.LastName.AutoSize = true;
-			this.LastName.Location = new System.Drawing.Point(36, 154);
+			this.LastName.Location = new System.Drawing.Point(75, 150);
 			this.LastName.Name = "LastName";
 			this.LastName.Size = new System.Drawing.Size(58, 13);
 			this.LastName.TabIndex = 12;
@@ -145,7 +147,7 @@
 			// Contact
 			// 
 			this.Contact.AutoSize = true;
-			this.Contact.Location = new System.Drawing.Point(36, 196);
+			this.Contact.Location = new System.Drawing.Point(458, 80);
 			this.Contact.Name = "Contact";
 			this.Contact.Size = new System.Drawing.Size(44, 13);
 			this.Contact.TabIndex = 13;
@@ -154,7 +156,7 @@
 			// Email
 			// 
 			this.Email.AutoSize = true;
-			this.Email.Location = new System.Drawing.Point(36, 234);
+			this.Email.Location = new System.Drawing.Point(458, 106);
 			this.Email.Name = "Email";
 			this.Email.Size = new System.Drawing.Size(32, 13);
 			this.Email.TabIndex = 14;
@@ -163,7 +165,7 @@
 			// DOB
 			// 
 			this.DOB.AutoSize = true;
-			this.DOB.Location = new System.Drawing.Point(36, 278);
+			this.DOB.Location = new System.Drawing.Point(460, 141);
 			this.DOB.Name = "DOB";
 			this.DOB.Size = new System.Drawing.Size(30, 13);
 			this.DOB.TabIndex = 15;
@@ -172,7 +174,7 @@
 			// Gender
 			// 
 			this.Gender.AutoSize = true;
-			this.Gender.Location = new System.Drawing.Point(36, 316);
+			this.Gender.Location = new System.Drawing.Point(75, 187);
 			this.Gender.Name = "Gender";
 			this.Gender.Size = new System.Drawing.Size(42, 13);
 			this.Gender.TabIndex = 16;
@@ -181,9 +183,9 @@
 			// dataGridView1
 			// 
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(335, 70);
+			this.dataGridView1.Location = new System.Drawing.Point(39, 223);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(429, 313);
+			this.dataGridView1.Size = new System.Drawing.Size(698, 194);
 			this.dataGridView1.TabIndex = 17;
 			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
@@ -193,7 +195,7 @@
 			this.comboBox1.Items.AddRange(new object[] {
             "Male",
             "Female"});
-			this.comboBox1.Location = new System.Drawing.Point(152, 308);
+			this.comboBox1.Location = new System.Drawing.Point(186, 184);
 			this.comboBox1.Name = "comboBox1";
 			this.comboBox1.Size = new System.Drawing.Size(121, 21);
 			this.comboBox1.TabIndex = 18;
@@ -201,7 +203,7 @@
 			// 
 			// ShowData
 			// 
-			this.ShowData.Location = new System.Drawing.Point(135, 360);
+			this.ShowData.Location = new System.Drawing.Point(497, 182);
 			this.ShowData.Name = "ShowData";
 			this.ShowData.Size = new System.Drawing.Size(75, 23);
 			this.ShowData.TabIndex = 19;
@@ -209,11 +211,22 @@
 			this.ShowData.UseVisualStyleBackColor = true;
 			this.ShowData.Click += new System.EventHandler(this.ShowData_Click);
 			// 
+			// Back
+			// 
+			this.Back.Location = new System.Drawing.Point(3, 21);
+			this.Back.Name = "Back";
+			this.Back.Size = new System.Drawing.Size(63, 28);
+			this.Back.TabIndex = 21;
+			this.Back.Text = "<- Back";
+			this.Back.UseVisualStyleBackColor = true;
+			this.Back.Click += new System.EventHandler(this.Back_Click);
+			// 
 			// Student
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.Controls.Add(this.Back);
 			this.Controls.Add(this.ShowData);
 			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.dataGridView1);
@@ -261,5 +274,6 @@
 		private System.Windows.Forms.DataGridView dataGridView1;
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.Button ShowData;
+		private System.Windows.Forms.Button Back;
 	}
 }

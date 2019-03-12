@@ -16,8 +16,7 @@ namespace Dblab
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Evaluation());
-			Application.Run(new Student());
+			Application.Run(new Main_Form());
 		}
 	}
 }

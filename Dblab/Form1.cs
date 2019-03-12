@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Dblab
 {
@@ -24,27 +25,84 @@ namespace Dblab
 
 		private void Evaluation_Load(object sender, EventArgs e)
 		{
-			Display();
+			DisplayEval();
 		}
-		private void Display()
+
+		private void DisplayEval()
 		{
 			con.Open();
 			DataTable dt = new DataTable();
 			adp = new SqlDataAdapter("SELECT * FROM Evaluation", con);
 			adp.Fill(dt);
 			dataGridView1.DataSource = dt;
+
+			DataGridViewButtonColumn deleteB;
+			deleteB = new DataGridViewButtonColumn();
+			deleteB.HeaderText = "Delete";
+			deleteB.Text = "Delete";
+			deleteB.UseColumnTextForButtonValue = true;
+			deleteB.Width = 60;
+			dataGridView1.Columns.Add(deleteB);
+			int a = 0;
+			while (a < dataGridView1.Rows.Count)
+			{
+				dataGridView1.Rows[a].Cells[0].ReadOnly = true;
+				a++;
+			}
+
+			DataGridViewButtonColumn Up_Data;
+			Up_Data = new DataGridViewButtonColumn();
+			Up_Data.HeaderText = "Update";
+			Up_Data.Text = "Update";
+			Up_Data.UseColumnTextForButtonValue = true;
+			Up_Data.Width = 60;
+			dataGridView1.Columns.Add(Up_Data);
+			int b = 0;
+			while (b < dataGridView1.Rows.Count)
+			{
+				dataGridView1.Rows[b].Cells[0].ReadOnly = true;
+				b++;
+			}
+	
 			con.Close();
 		}
 
+
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			//MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-			ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-			textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-			textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-			textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-		}
+			con.Open();
+			int URow = int.Parse(e.RowIndex.ToString());
+			int URowIndex = int.Parse(e.ColumnIndex.ToString());
+			ID = Convert.ToInt32(dataGridView1.Rows[URow].Cells[0].Value.ToString());
+			if (URowIndex == 0)
+			{
+				MessageBox.Show("Click on delete button");
+			}
+			if (URowIndex != 0)
+			{
+				var askfirst = MessageBox.Show("Are you sure you want to delete this?", "Delete", MessageBoxButtons.YesNo);
+				if (askfirst == DialogResult.Yes)
+				{
+					cmd = new SqlCommand("DELETE FROM Evaluation where ID = @Id", con);
+					cmd.Parameters.AddWithValue("@Id", ID);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					MessageBox.Show("Deleted Succesfully");
 
+					this.Hide();
+					Evaluation f1 = new Evaluation();
+					f1.ShowDialog();
+					this.Close();
+
+
+				}
+			}
+				//MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+				ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+				textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+				textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+				textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+		}
 		private void button1_Click(object sender, EventArgs e)
 		{
 			if (textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "")
@@ -58,7 +116,7 @@ namespace Dblab
 				cmd.ExecuteNonQuery();
 				con.Close();
 				MessageBox.Show("Updated successfully");
-				Display();
+				DisplayEval();
 			}
 			else
 			{
@@ -67,42 +125,44 @@ namespace Dblab
 
 		}
 
-		private void button2_Click(object sender, EventArgs e)
-		{
-			if (ID != 0)
-			{
-				cmd = new SqlCommand("DELETE FROM Evaluation where ID = @Id", con);
-				con.Open();
-				cmd.Parameters.AddWithValue("@Id", ID);
-				cmd.ExecuteNonQuery();
-				con.Close();
-				MessageBox.Show("Delete successfully");
-				Display();
-				textBox2.Clear();
-				textBox3.Clear();
-				textBox4.Clear();
-			}
-			else
-			{
-				MessageBox.Show("Select Row to delete");
-			}
 
-		}
 
 		private void button3_Click(object sender, EventArgs e)
 		{
 			if (textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "")
 			{
-				cmd = new SqlCommand("insert into Evaluation (Evaluation.Name, TotalMarks, TotalWeightage) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "') ", con);
-				con.Open();
-				cmd.ExecuteNonQuery();
-				con.Close();
-				MessageBox.Show("Inserted Successfully");
-				Display();
+				if (Regex.IsMatch(textBox2.Text, @"^[a-zA-Z\s]+$"))
+				{
+					if (System.Text.RegularExpressions.Regex.IsMatch(textBox3.Text, "^[0-9]*$") && (System.Text.RegularExpressions.Regex.IsMatch(textBox4.Text, "^[0-9]*$")))
+					{
+						cmd = new SqlCommand("insert into Evaluation (Evaluation.Name, TotalMarks, TotalWeightage) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "') ", con);
+						con.Open();
+						cmd.ExecuteNonQuery();
+						con.Close();
+						MessageBox.Show("Inserted Successfully");
+						DisplayEval();
+						this.Hide();
+						Evaluation f1 = new Evaluation();
+						f1.ShowDialog();
+						this.Close();
+						Clear();
+
+					}
+					else
+					{
+						MessageBox.Show("Please Enter Valid Marks and weightage");
+					}
+				}
+				else
+				{
+					MessageBox.Show("Please enter valid name");
+				}
 			}
+			
 			else
 			{
 				MessageBox.Show("Please enter record");
+
 			}
 		}
 
@@ -135,7 +195,13 @@ namespace Dblab
 		{
 
 		}
-
+		private void Clear()
+		{
+			textBox2.Clear();
+			textBox3.Clear();
+			textBox4.Clear();
+	
+		}
 		private void textBox4_TextChanged(object sender, EventArgs e)
 		{
 
@@ -143,11 +209,29 @@ namespace Dblab
 
 		private void button4_Click(object sender, EventArgs e)
 		{
+			DisplayEval();
 			this.Hide();
-			Student f2 = new Student();
-			f2.ShowDialog();
+			Evaluation f1 = new Evaluation();
+			f1.ShowDialog();
 			this.Close();
-			f2.Close();
+		}
+
+		private void Back_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			Main_Form f4 = new Main_Form();
+			f4.ShowDialog();
+			this.Close();
+		}
+
+		private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void flowLayoutPanel7_Paint(object sender, PaintEventArgs e)
+		{
+
 		}
 	}
 }
