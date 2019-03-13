@@ -7,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 
 namespace Dblab
 {
-	public partial class Student : Form
+	public partial class Advisor : Form
 	{
+		public Advisor()
+		{
+			InitializeComponent();
+		}
 		public int Flag = 0;
 		SqlCommand cmd1;
 		SqlCommand cmd2;
@@ -21,24 +26,20 @@ namespace Dblab
 		SqlDataAdapter adp;
 		int ID = 0;
 		int ID1 = 0;
-		public Student()
-		{
-			InitializeComponent();
-		}
 
-		public Student(int f)
+		public Advisor(int f)
 		{
 			InitializeComponent();
 			Flag = f;
 		}
 
-		private void DisplayStudent()
+		private void DisplayAdvisor()
 		{
 			/* Student.Id, Student.RegistrationNo, Person.FirstName, Person.LastName, Person.Contact, Person.Email, Person.DateOfBirth, Person.Gender
 			*/
 			con1.Open();
 			DataTable dt = new DataTable();
-			adp = new SqlDataAdapter("SELECT * FROM Student JOIN Person ON Student.Id = Person.Id ", con1);
+			adp = new SqlDataAdapter("SELECT * FROM Student JOIN Advisor ON Student.Id = Person.Id ", con1);
 			adp.Fill(dt);
 			dataGridView1.DataSource = dt;
 
@@ -71,28 +72,32 @@ namespace Dblab
 			}
 			con1.Close();
 		}
-		private void Save_Click(object sender, EventArgs e)
+
+		private void Back_Click(object sender, EventArgs e)
 		{
-			
+			this.Hide();
+			Main_Form f4 = new Main_Form();
+			f4.ShowDialog();
+			this.Close();
+
 		}
 
-		private void Delete_Click(object sender, EventArgs e)
+		private void addStudt_Click(object sender, EventArgs e)
 		{
-
-		}
-		private void Student_Load(object sender, EventArgs e)
-		{
-			DisplayStudent();
+			this.Hide();
+			Add_Advisor f4 = new Add_Advisor();
+			f4.ShowDialog();
+			this.Close();
 		}
 
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
 			con1.Open();
-			
+
 			int UP_Row = int.Parse(e.RowIndex.ToString());
 			int UP_RowIndex = int.Parse(e.ColumnIndex.ToString());
 			ID1 = Convert.ToInt32(dataGridView1.Rows[UP_Row].Cells[0].Value.ToString());
-			if (UP_RowIndex == 10)
+			if (UP_RowIndex == 11)
 			{
 				if (UP_RowIndex == 1)
 
@@ -126,9 +131,9 @@ namespace Dblab
 
 						s.ShowDialog();
 						con1.Close();
-					
-						
-						
+
+
+
 					}
 					else
 					{
@@ -136,11 +141,11 @@ namespace Dblab
 						this.Hide();
 						Student f2 = new Student();
 						f2.ShowDialog();
-						DisplayStudent();
+						DisplayAdvisor();
 					}
 				}
 			}
-			else if (UP_RowIndex == 9)
+			else if (UP_RowIndex == 10)
 			{
 				int URow = int.Parse(e.RowIndex.ToString());
 				int URowIndex = int.Parse(e.ColumnIndex.ToString());
@@ -156,7 +161,7 @@ namespace Dblab
 					if (askfirst == DialogResult.Yes)
 					{
 						cmd1 = new SqlCommand("DELETE FROM Person where ID = @Id", con1);
-						cmd2 = new SqlCommand("DELETE FROM Student where ID = @Id", con1);
+						cmd2 = new SqlCommand("DELETE FROM Advisor where ID = @Id", con1);
 						cmd2.Parameters.AddWithValue("@Id", ID);
 						cmd1.Parameters.AddWithValue("@Id", ID);
 						cmd2.ExecuteNonQuery();
@@ -176,7 +181,7 @@ namespace Dblab
 						this.Hide();
 						Student f2 = new Student();
 						f2.ShowDialog();
-						DisplayStudent();
+						DisplayAdvisor();
 
 					}
 				}
@@ -185,132 +190,16 @@ namespace Dblab
 			{
 				con1.Close();
 			}
-			/*textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-			textBox2.Text = grv.Cells[3].Value.ToString();
-			textBox3.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-			textBox4.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-			textBox5.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-			textBox6.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
+		}
 
-			comboBox1.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
-			*/
-		}
-		/*
-		private void dataGridView1_RowHeaderMouseClick_1(object sender, DataGridViewCellEventArgs e)
-		{
-			ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-			textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-			textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-			textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-			textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-			textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-			textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-			comboBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-		}
-		*/
-		private void textBox1_TextChanged(object sender, EventArgs e)
+		private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
 		{
 
 		}
 
-		private void textBox2_TextChanged(object sender, EventArgs e)
+		private void Advisor_Load(object sender, EventArgs e)
 		{
-
-		}
-
-		private void textBox3_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void textBox5_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void ShowData_Click(object sender, EventArgs e)
-		{
-			DisplayStudent();
-			
-		}
-
-		private void Delete1_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			Project f3 = new Project();
-			f3.ShowDialog();
-			f3.Close();
-		}
-
-		private void textBox6_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void Back_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			Main_Form f4 = new Main_Form();
-			f4.ShowDialog();
-			this.Close();
-		}
-
-		private void Gender_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void DOB_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void Email_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void Contact_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void LastName_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void FirstName_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void RegNo_Click(object sender, EventArgs e)
-		{
-
-		}
-
-		private void textBox4_TextChanged(object sender, EventArgs e)
-		{
-
-		}
-
-		private void addStudt_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			AddStudent f4 = new AddStudent();
-			f4.ShowDialog();
-			this.Close();
-		}
-
-		private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-		{
-
+			DisplayAdvisor();
 		}
 	}
 }

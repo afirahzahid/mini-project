@@ -28,252 +28,174 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.Save = new System.Windows.Forms.Button();
-			this.Delete = new System.Windows.Forms.Button();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.RegNo = new System.Windows.Forms.Label();
-			this.FirstName = new System.Windows.Forms.Label();
-			this.LastName = new System.Windows.Forms.Label();
-			this.Contact = new System.Windows.Forms.Label();
-			this.Email = new System.Windows.Forms.Label();
-			this.DOB = new System.Windows.Forms.Label();
-			this.Gender = new System.Windows.Forms.Label();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.ShowData = new System.Windows.Forms.Button();
 			this.Back = new System.Windows.Forms.Button();
+			this.addStudt = new System.Windows.Forms.Button();
+			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+			this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+			this.tableLayoutPanel1.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
+			this.tableLayoutPanel3.SuspendLayout();
+			this.tableLayoutPanel5.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// Save
-			// 
-			this.Save.Location = new System.Drawing.Point(370, 182);
-			this.Save.Name = "Save";
-			this.Save.Size = new System.Drawing.Size(75, 23);
-			this.Save.TabIndex = 0;
-			this.Save.Text = "Save";
-			this.Save.UseVisualStyleBackColor = true;
-			this.Save.Click += new System.EventHandler(this.Save_Click);
-			// 
-			// Delete
-			// 
-			this.Delete.Location = new System.Drawing.Point(620, 182);
-			this.Delete.Name = "Delete";
-			this.Delete.Size = new System.Drawing.Size(75, 23);
-			this.Delete.TabIndex = 2;
-			this.Delete.Text = "Update";
-			this.Delete.UseVisualStyleBackColor = true;
-			this.Delete.Click += new System.EventHandler(this.Delete_Click);
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(191, 70);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(116, 20);
-			this.textBox1.TabIndex = 3;
-			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-			// 
-			// textBox2
-			// 
-			this.textBox2.Location = new System.Drawing.Point(191, 106);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(116, 20);
-			this.textBox2.TabIndex = 4;
-			this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-			// 
-			// textBox3
-			// 
-			this.textBox3.Location = new System.Drawing.Point(191, 147);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(116, 20);
-			this.textBox3.TabIndex = 5;
-			this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
-			// 
-			// textBox4
-			// 
-			this.textBox4.Location = new System.Drawing.Point(589, 70);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(116, 20);
-			this.textBox4.TabIndex = 6;
-			// 
-			// textBox5
-			// 
-			this.textBox5.Location = new System.Drawing.Point(589, 107);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(116, 20);
-			this.textBox5.TabIndex = 7;
-			this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-			// 
-			// textBox6
-			// 
-			this.textBox6.Location = new System.Drawing.Point(589, 138);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(116, 20);
-			this.textBox6.TabIndex = 8;
-			this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-			// 
-			// RegNo
-			// 
-			this.RegNo.AutoSize = true;
-			this.RegNo.Location = new System.Drawing.Point(76, 73);
-			this.RegNo.Name = "RegNo";
-			this.RegNo.Size = new System.Drawing.Size(41, 13);
-			this.RegNo.TabIndex = 10;
-			this.RegNo.Text = "RegNo";
-			// 
-			// FirstName
-			// 
-			this.FirstName.AutoSize = true;
-			this.FirstName.Location = new System.Drawing.Point(76, 110);
-			this.FirstName.Name = "FirstName";
-			this.FirstName.Size = new System.Drawing.Size(57, 13);
-			this.FirstName.TabIndex = 11;
-			this.FirstName.Text = "First Name";
-			// 
-			// LastName
-			// 
-			this.LastName.AutoSize = true;
-			this.LastName.Location = new System.Drawing.Point(75, 150);
-			this.LastName.Name = "LastName";
-			this.LastName.Size = new System.Drawing.Size(58, 13);
-			this.LastName.TabIndex = 12;
-			this.LastName.Text = "Last Name";
-			// 
-			// Contact
-			// 
-			this.Contact.AutoSize = true;
-			this.Contact.Location = new System.Drawing.Point(458, 80);
-			this.Contact.Name = "Contact";
-			this.Contact.Size = new System.Drawing.Size(44, 13);
-			this.Contact.TabIndex = 13;
-			this.Contact.Text = "Contact";
-			// 
-			// Email
-			// 
-			this.Email.AutoSize = true;
-			this.Email.Location = new System.Drawing.Point(458, 106);
-			this.Email.Name = "Email";
-			this.Email.Size = new System.Drawing.Size(32, 13);
-			this.Email.TabIndex = 14;
-			this.Email.Text = "Email";
-			// 
-			// DOB
-			// 
-			this.DOB.AutoSize = true;
-			this.DOB.Location = new System.Drawing.Point(460, 141);
-			this.DOB.Name = "DOB";
-			this.DOB.Size = new System.Drawing.Size(30, 13);
-			this.DOB.TabIndex = 15;
-			this.DOB.Text = "DOB";
-			// 
-			// Gender
-			// 
-			this.Gender.AutoSize = true;
-			this.Gender.Location = new System.Drawing.Point(75, 187);
-			this.Gender.Name = "Gender";
-			this.Gender.Size = new System.Drawing.Size(42, 13);
-			this.Gender.TabIndex = 16;
-			this.Gender.Text = "Gender";
 			// 
 			// dataGridView1
 			// 
+			this.dataGridView1.AllowUserToAddRows = false;
+			this.dataGridView1.AllowUserToDeleteRows = false;
 			this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView1.Location = new System.Drawing.Point(39, 223);
+			this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dataGridView1.Location = new System.Drawing.Point(3, 114);
 			this.dataGridView1.Name = "dataGridView1";
-			this.dataGridView1.Size = new System.Drawing.Size(698, 194);
+			this.dataGridView1.ReadOnly = true;
+			this.dataGridView1.Size = new System.Drawing.Size(788, 327);
 			this.dataGridView1.TabIndex = 17;
 			this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
 			// 
-			// comboBox1
-			// 
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-			this.comboBox1.Location = new System.Drawing.Point(186, 184);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(121, 21);
-			this.comboBox1.TabIndex = 18;
-			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-			// 
-			// ShowData
-			// 
-			this.ShowData.Location = new System.Drawing.Point(497, 182);
-			this.ShowData.Name = "ShowData";
-			this.ShowData.Size = new System.Drawing.Size(75, 23);
-			this.ShowData.TabIndex = 19;
-			this.ShowData.Text = "ShowData";
-			this.ShowData.UseVisualStyleBackColor = true;
-			this.ShowData.Click += new System.EventHandler(this.ShowData_Click);
-			// 
 			// Back
 			// 
-			this.Back.Location = new System.Drawing.Point(3, 21);
+			this.Back.Dock = System.Windows.Forms.DockStyle.Left;
+			this.Back.Location = new System.Drawing.Point(3, 3);
 			this.Back.Name = "Back";
-			this.Back.Size = new System.Drawing.Size(63, 28);
+			this.Back.Size = new System.Drawing.Size(63, 34);
 			this.Back.TabIndex = 21;
 			this.Back.Text = "<- Back";
 			this.Back.UseVisualStyleBackColor = true;
 			this.Back.Click += new System.EventHandler(this.Back_Click);
+			// 
+			// addStudt
+			// 
+			this.addStudt.Dock = System.Windows.Forms.DockStyle.Right;
+			this.addStudt.Location = new System.Drawing.Point(710, 3);
+			this.addStudt.Name = "addStudt";
+			this.addStudt.Size = new System.Drawing.Size(75, 34);
+			this.addStudt.TabIndex = 22;
+			this.addStudt.Text = "+";
+			this.addStudt.UseVisualStyleBackColor = true;
+			this.addStudt.Click += new System.EventHandler(this.addStudt_Click);
+			// 
+			// tableLayoutPanel1
+			// 
+			this.tableLayoutPanel1.ColumnCount = 3;
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
+			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.04762F));
+			this.tableLayoutPanel1.Controls.Add(this.Back, 0, 0);
+			this.tableLayoutPanel1.Controls.Add(this.addStudt, 2, 0);
+			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 68);
+			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+			this.tableLayoutPanel1.RowCount = 1;
+			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(788, 40);
+			this.tableLayoutPanel1.TabIndex = 23;
+			this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 3;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 1;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(788, 59);
+			this.tableLayoutPanel2.TabIndex = 24;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(265, 0);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(256, 59);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Student Table";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// tableLayoutPanel3
+			// 
+			this.tableLayoutPanel3.ColumnCount = 1;
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel2, 0, 0);
+			this.tableLayoutPanel3.Controls.Add(this.dataGridView1, 0, 2);
+			this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel1, 0, 1);
+			this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+			this.tableLayoutPanel3.RowCount = 3;
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.83376F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.58559F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.77477F));
+			this.tableLayoutPanel3.Size = new System.Drawing.Size(794, 444);
+			this.tableLayoutPanel3.TabIndex = 25;
+			// 
+			// tableLayoutPanel4
+			// 
+			this.tableLayoutPanel4.ColumnCount = 2;
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel4.Location = new System.Drawing.Point(801, 80);
+			this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+			this.tableLayoutPanel4.RowCount = 2;
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel4.Size = new System.Drawing.Size(200, 100);
+			this.tableLayoutPanel4.TabIndex = 26;
+			// 
+			// tableLayoutPanel5
+			// 
+			this.tableLayoutPanel5.ColumnCount = 1;
+			this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel3, 0, 0);
+			this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel5.Location = new System.Drawing.Point(0, 0);
+			this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+			this.tableLayoutPanel5.RowCount = 1;
+			this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+			this.tableLayoutPanel5.Size = new System.Drawing.Size(800, 450);
+			this.tableLayoutPanel5.TabIndex = 27;
 			// 
 			// Student
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.Back);
-			this.Controls.Add(this.ShowData);
-			this.Controls.Add(this.comboBox1);
-			this.Controls.Add(this.dataGridView1);
-			this.Controls.Add(this.Gender);
-			this.Controls.Add(this.DOB);
-			this.Controls.Add(this.Email);
-			this.Controls.Add(this.Contact);
-			this.Controls.Add(this.LastName);
-			this.Controls.Add(this.FirstName);
-			this.Controls.Add(this.RegNo);
-			this.Controls.Add(this.textBox6);
-			this.Controls.Add(this.textBox5);
-			this.Controls.Add(this.textBox4);
-			this.Controls.Add(this.textBox3);
-			this.Controls.Add(this.textBox2);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.Delete);
-			this.Controls.Add(this.Save);
+			this.Controls.Add(this.tableLayoutPanel5);
+			this.Controls.Add(this.tableLayoutPanel4);
+			this.MinimumSize = new System.Drawing.Size(600, 400);
 			this.Name = "Student";
 			this.Text = "Student";
 			this.Load += new System.EventHandler(this.Student_Load);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+			this.tableLayoutPanel1.ResumeLayout(false);
+			this.tableLayoutPanel2.ResumeLayout(false);
+			this.tableLayoutPanel2.PerformLayout();
+			this.tableLayoutPanel3.ResumeLayout(false);
+			this.tableLayoutPanel5.ResumeLayout(false);
 			this.ResumeLayout(false);
-			this.PerformLayout();
 
 		}
 
 		#endregion
-
-		private System.Windows.Forms.Button Save;
-		private System.Windows.Forms.Button Delete;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.TextBox textBox6;
-		private System.Windows.Forms.Label RegNo;
-		private System.Windows.Forms.Label FirstName;
-		private System.Windows.Forms.Label LastName;
-		private System.Windows.Forms.Label Contact;
-		private System.Windows.Forms.Label Email;
-		private System.Windows.Forms.Label DOB;
-		private System.Windows.Forms.Label Gender;
-		private System.Windows.Forms.DataGridView dataGridView1;
-		private System.Windows.Forms.ComboBox comboBox1;
-		private System.Windows.Forms.Button ShowData;
 		private System.Windows.Forms.Button Back;
+		private System.Windows.Forms.Button addStudt;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+		public System.Windows.Forms.DataGridView dataGridView1;
 	}
 }

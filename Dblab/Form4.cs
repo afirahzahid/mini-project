@@ -27,7 +27,7 @@ namespace Dblab
 		private void button1_Click(object sender, EventArgs e)
 		{
 			this.Hide();
-			Student f2 = new Student();
+			AddStudent f2 = new AddStudent();
 			f2.ShowDialog();
 			this.Close();
 		}
@@ -46,6 +46,20 @@ namespace Dblab
 			Project f1 = new Project();
 			f1.ShowDialog();
 			this.Close();
+		}
+
+		private void Manage_Advisors_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			Add_Advisor f1 = new Add_Advisor();
+			f1.ShowDialog();
+			this.Close();
+			
+		}
+
+		private void label1_Click(object sender, EventArgs e)
+		{
+
 		}
 	}
 }

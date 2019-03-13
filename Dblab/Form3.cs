@@ -34,7 +34,7 @@ namespace Dblab
 
 			DataGridViewButtonColumn deleteB;
 			deleteB = new DataGridViewButtonColumn();
-			deleteB.HeaderText = "Delete";
+			//deleteB.HeaderText = "Delete";
 			deleteB.Text = "Delete";
 			deleteB.UseColumnTextForButtonValue = true;
 			deleteB.Width = 60;
@@ -160,6 +160,11 @@ namespace Dblab
 			Main_Form f4 = new Main_Form();
 			f4.ShowDialog();
 			this.Close();
+		}
+
+		private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
+		{
+
 		}
 	}
 
