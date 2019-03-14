@@ -34,11 +34,9 @@ namespace Dblab
 
 		private void DisplayStudent()
 		{
-			/* Student.Id, Student.RegistrationNo, Person.FirstName, Person.LastName, Person.Contact, Person.Email, Person.DateOfBirth, Person.Gender
-			*/
 			con1.Open();
 			DataTable dt = new DataTable();
-			adp = new SqlDataAdapter("SELECT * FROM Student JOIN Person ON Student.Id = Person.Id ", con1);
+			adp = new SqlDataAdapter("SELECT Student.Id, RegistrationNo, Person.FirstName, Person.LastName, Person.Contact, Person.Email, Person.DateOfBirth, Person.Gender FROM Student JOIN Person ON Student.Id = Person.Id ", con1);
 			adp.Fill(dt);
 			dataGridView1.DataSource = dt;
 
@@ -92,43 +90,43 @@ namespace Dblab
 			int UP_Row = int.Parse(e.RowIndex.ToString());
 			int UP_RowIndex = int.Parse(e.ColumnIndex.ToString());
 			ID1 = Convert.ToInt32(dataGridView1.Rows[UP_Row].Cells[0].Value.ToString());
-			if (UP_RowIndex == 10)
+			int dd = (int)dataGridView1.CurrentRow.Cells[0].Value;
+			if (UP_RowIndex == 9)
 			{
 				if (UP_RowIndex == 1)
 
 					if (UP_RowIndex == 0)
 					{
-						MessageBox.Show("lala");
+						MessageBox.Show("Click Again");
 					}
 				if (UP_RowIndex != 0)
 				{
 					var askfirst1 = MessageBox.Show("Are you sure you want to Update this?", "Update", MessageBoxButtons.YesNo);
 					if (askfirst1 == DialogResult.Yes)
 					{
-						AddStudent s = new AddStudent(1);
+						AddStudent s = new AddStudent(dd);
 						ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
 						s.textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-						s.textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-						s.textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-						s.textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-						s.textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-						s.textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-						if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value) == 1)
+						s.textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+						s.textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+						s.textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+						s.textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+						s.dateTimePicker1.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+						if (dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString() == "")
+						{
+							s.comboBox1.Text = "";
+						}
+
+						else if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value) == 1)
 						{
 							s.comboBox1.Text = "Male";
 						}
-						if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value) == 2)
+						else if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value) == 2)
 						{
 							s.comboBox1.Text = "Female";
-
 						}
-
-
 						s.ShowDialog();
-						con1.Close();
-					
-						
-						
+						con1.Close();	
 					}
 					else
 					{
@@ -140,7 +138,7 @@ namespace Dblab
 					}
 				}
 			}
-			else if (UP_RowIndex == 9)
+			else if (UP_RowIndex == 8)
 			{
 				int URow = int.Parse(e.RowIndex.ToString());
 				int URowIndex = int.Parse(e.ColumnIndex.ToString());
@@ -177,7 +175,6 @@ namespace Dblab
 						Student f2 = new Student();
 						f2.ShowDialog();
 						DisplayStudent();
-
 					}
 				}
 			}
@@ -185,32 +182,6 @@ namespace Dblab
 			{
 				con1.Close();
 			}
-			/*textBox1.Text = dataGridView1.SelectedRows[0].Cells[1].Value.ToString();
-			textBox2.Text = grv.Cells[3].Value.ToString();
-			textBox3.Text = dataGridView1.SelectedRows[0].Cells[4].Value.ToString();
-			textBox4.Text = dataGridView1.SelectedRows[0].Cells[5].Value.ToString();
-			textBox5.Text = dataGridView1.SelectedRows[0].Cells[6].Value.ToString();
-			textBox6.Text = dataGridView1.SelectedRows[0].Cells[7].Value.ToString();
-
-			comboBox1.Text = dataGridView1.SelectedRows[0].Cells[8].Value.ToString();
-			*/
-		}
-		/*
-		private void dataGridView1_RowHeaderMouseClick_1(object sender, DataGridViewCellEventArgs e)
-		{
-			ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-			textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-			textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-			textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-			textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-			textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-			textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-			comboBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-		}
-		*/
-		private void textBox1_TextChanged(object sender, EventArgs e)
-		{
-
 		}
 
 		private void textBox2_TextChanged(object sender, EventArgs e)

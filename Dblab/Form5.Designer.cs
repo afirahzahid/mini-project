@@ -30,24 +30,24 @@
 		{
 			this.Student = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.LastName = new System.Windows.Forms.Label();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.Gender = new System.Windows.Forms.Label();
-			this.Contact = new System.Windows.Forms.Label();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.Email = new System.Windows.Forms.Label();
-			this.comboBox1 = new System.Windows.Forms.ComboBox();
-			this.DOB = new System.Windows.Forms.Label();
-			this.textBox6 = new System.Windows.Forms.TextBox();
-			this.FirstName = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.RegNo = new System.Windows.Forms.Label();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.FirstName = new System.Windows.Forms.Label();
+			this.DOB = new System.Windows.Forms.Label();
+			this.comboBox1 = new System.Windows.Forms.ComboBox();
+			this.Email = new System.Windows.Forms.Label();
+			this.textBox5 = new System.Windows.Forms.TextBox();
+			this.textBox2 = new System.Windows.Forms.TextBox();
+			this.Contact = new System.Windows.Forms.Label();
+			this.Gender = new System.Windows.Forms.Label();
+			this.textBox4 = new System.Windows.Forms.TextBox();
+			this.LastName = new System.Windows.Forms.Label();
+			this.textBox3 = new System.Windows.Forms.TextBox();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.Back = new System.Windows.Forms.Button();
-			this.Save = new System.Windows.Forms.Button();
 			this.ShowData = new System.Windows.Forms.Button();
+			this.Save = new System.Windows.Forms.Button();
+			this.Back = new System.Windows.Forms.Button();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -64,6 +64,7 @@
 			this.Student.TabIndex = 80;
 			this.Student.Text = "Add Student";
 			this.Student.UseVisualStyleBackColor = true;
+			this.Student.Click += new System.EventHandler(this.Student_Click);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -73,7 +74,6 @@
 			this.tableLayoutPanel1.Controls.Add(this.RegNo, 0, 0);
 			this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 0);
 			this.tableLayoutPanel1.Controls.Add(this.FirstName, 0, 1);
-			this.tableLayoutPanel1.Controls.Add(this.textBox6, 1, 6);
 			this.tableLayoutPanel1.Controls.Add(this.DOB, 0, 6);
 			this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 3);
 			this.tableLayoutPanel1.Controls.Add(this.Email, 0, 5);
@@ -84,6 +84,7 @@
 			this.tableLayoutPanel1.Controls.Add(this.textBox4, 1, 4);
 			this.tableLayoutPanel1.Controls.Add(this.LastName, 0, 2);
 			this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 2);
+			this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 6);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(105, 64);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -98,123 +99,26 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(541, 263);
 			this.tableLayoutPanel1.TabIndex = 78;
 			// 
-			// textBox3
+			// RegNo
 			// 
-			this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox3.Location = new System.Drawing.Point(270, 77);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(268, 20);
-			this.textBox3.TabIndex = 24;
-			this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+			this.RegNo.AutoSize = true;
+			this.RegNo.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.RegNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.RegNo.Location = new System.Drawing.Point(3, 0);
+			this.RegNo.Name = "RegNo";
+			this.RegNo.Size = new System.Drawing.Size(261, 37);
+			this.RegNo.TabIndex = 28;
+			this.RegNo.Text = "RegNo";
+			this.RegNo.Click += new System.EventHandler(this.RegNo_Click);
 			// 
-			// LastName
+			// textBox1
 			// 
-			this.LastName.AutoSize = true;
-			this.LastName.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.LastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LastName.Location = new System.Drawing.Point(3, 74);
-			this.LastName.Name = "LastName";
-			this.LastName.Size = new System.Drawing.Size(261, 37);
-			this.LastName.TabIndex = 30;
-			this.LastName.Text = "Last Name";
-			this.LastName.Click += new System.EventHandler(this.LastName_Click);
-			// 
-			// textBox4
-			// 
-			this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox4.Location = new System.Drawing.Point(270, 151);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(268, 20);
-			this.textBox4.TabIndex = 25;
-			this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
-			// 
-			// Gender
-			// 
-			this.Gender.AutoSize = true;
-			this.Gender.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Gender.Location = new System.Drawing.Point(3, 111);
-			this.Gender.Name = "Gender";
-			this.Gender.Size = new System.Drawing.Size(261, 37);
-			this.Gender.TabIndex = 34;
-			this.Gender.Text = "Gender";
-			this.Gender.Click += new System.EventHandler(this.Gender_Click);
-			// 
-			// Contact
-			// 
-			this.Contact.AutoSize = true;
-			this.Contact.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Contact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Contact.Location = new System.Drawing.Point(3, 148);
-			this.Contact.Name = "Contact";
-			this.Contact.Size = new System.Drawing.Size(261, 37);
-			this.Contact.TabIndex = 31;
-			this.Contact.Text = "Contact";
-			this.Contact.Click += new System.EventHandler(this.Contact_Click);
-			// 
-			// textBox2
-			// 
-			this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox2.Location = new System.Drawing.Point(270, 40);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(268, 20);
-			this.textBox2.TabIndex = 23;
-			this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-			// 
-			// textBox5
-			// 
-			this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox5.Location = new System.Drawing.Point(270, 188);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(268, 20);
-			this.textBox5.TabIndex = 26;
-			this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-			// 
-			// Email
-			// 
-			this.Email.AutoSize = true;
-			this.Email.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Email.Location = new System.Drawing.Point(3, 185);
-			this.Email.Name = "Email";
-			this.Email.Size = new System.Drawing.Size(261, 37);
-			this.Email.TabIndex = 32;
-			this.Email.Text = "Email";
-			this.Email.Click += new System.EventHandler(this.Email_Click);
-			// 
-			// comboBox1
-			// 
-			this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.comboBox1.FormattingEnabled = true;
-			this.comboBox1.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-			this.comboBox1.Location = new System.Drawing.Point(270, 114);
-			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(268, 21);
-			this.comboBox1.TabIndex = 35;
-			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-			// 
-			// DOB
-			// 
-			this.DOB.AutoSize = true;
-			this.DOB.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.DOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.DOB.Location = new System.Drawing.Point(3, 222);
-			this.DOB.Name = "DOB";
-			this.DOB.Size = new System.Drawing.Size(261, 41);
-			this.DOB.TabIndex = 33;
-			this.DOB.Text = "DOB";
-			this.DOB.Click += new System.EventHandler(this.DOB_Click);
-			// 
-			// textBox6
-			// 
-			this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox6.Location = new System.Drawing.Point(270, 225);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(268, 20);
-			this.textBox6.TabIndex = 27;
-			this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
+			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox1.Location = new System.Drawing.Point(270, 3);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(268, 20);
+			this.textBox1.TabIndex = 22;
+			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
 			// 
 			// FirstName
 			// 
@@ -228,26 +132,126 @@
 			this.FirstName.Text = "First Name";
 			this.FirstName.Click += new System.EventHandler(this.FirstName_Click);
 			// 
-			// textBox1
+			// DOB
 			// 
-			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox1.Location = new System.Drawing.Point(270, 3);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(268, 20);
-			this.textBox1.TabIndex = 22;
-			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+			this.DOB.AutoSize = true;
+			this.DOB.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.DOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.DOB.Location = new System.Drawing.Point(3, 222);
+			this.DOB.Name = "DOB";
+			this.DOB.Size = new System.Drawing.Size(261, 41);
+			this.DOB.TabIndex = 33;
+			this.DOB.Text = "DOB";
+			this.DOB.Click += new System.EventHandler(this.DOB_Click);
 			// 
-			// RegNo
+			// comboBox1
 			// 
-			this.RegNo.AutoSize = true;
-			this.RegNo.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.RegNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.RegNo.Location = new System.Drawing.Point(3, 0);
-			this.RegNo.Name = "RegNo";
-			this.RegNo.Size = new System.Drawing.Size(261, 37);
-			this.RegNo.TabIndex = 28;
-			this.RegNo.Text = "RegNo";
-			this.RegNo.Click += new System.EventHandler(this.RegNo_Click);
+			this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox1.FormattingEnabled = true;
+			this.comboBox1.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+			this.comboBox1.Location = new System.Drawing.Point(270, 114);
+			this.comboBox1.Name = "comboBox1";
+			this.comboBox1.Size = new System.Drawing.Size(268, 21);
+			this.comboBox1.TabIndex = 35;
+			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+			// 
+			// Email
+			// 
+			this.Email.AutoSize = true;
+			this.Email.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Email.Location = new System.Drawing.Point(3, 185);
+			this.Email.Name = "Email";
+			this.Email.Size = new System.Drawing.Size(261, 37);
+			this.Email.TabIndex = 32;
+			this.Email.Text = "Email";
+			this.Email.Click += new System.EventHandler(this.Email_Click);
+			// 
+			// textBox5
+			// 
+			this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox5.Location = new System.Drawing.Point(270, 188);
+			this.textBox5.Name = "textBox5";
+			this.textBox5.Size = new System.Drawing.Size(268, 20);
+			this.textBox5.TabIndex = 26;
+			this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+			// 
+			// textBox2
+			// 
+			this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox2.Location = new System.Drawing.Point(270, 40);
+			this.textBox2.Name = "textBox2";
+			this.textBox2.Size = new System.Drawing.Size(268, 20);
+			this.textBox2.TabIndex = 23;
+			this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+			// 
+			// Contact
+			// 
+			this.Contact.AutoSize = true;
+			this.Contact.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Contact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Contact.Location = new System.Drawing.Point(3, 148);
+			this.Contact.Name = "Contact";
+			this.Contact.Size = new System.Drawing.Size(261, 37);
+			this.Contact.TabIndex = 31;
+			this.Contact.Text = "Contact";
+			this.Contact.Click += new System.EventHandler(this.Contact_Click);
+			// 
+			// Gender
+			// 
+			this.Gender.AutoSize = true;
+			this.Gender.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Gender.Location = new System.Drawing.Point(3, 111);
+			this.Gender.Name = "Gender";
+			this.Gender.Size = new System.Drawing.Size(261, 37);
+			this.Gender.TabIndex = 34;
+			this.Gender.Text = "Gender";
+			this.Gender.Click += new System.EventHandler(this.Gender_Click);
+			// 
+			// textBox4
+			// 
+			this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox4.Location = new System.Drawing.Point(270, 151);
+			this.textBox4.Name = "textBox4";
+			this.textBox4.Size = new System.Drawing.Size(268, 20);
+			this.textBox4.TabIndex = 25;
+			this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+			// 
+			// LastName
+			// 
+			this.LastName.AutoSize = true;
+			this.LastName.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.LastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.LastName.Location = new System.Drawing.Point(3, 74);
+			this.LastName.Name = "LastName";
+			this.LastName.Size = new System.Drawing.Size(261, 37);
+			this.LastName.TabIndex = 30;
+			this.LastName.Text = "Last Name";
+			this.LastName.Click += new System.EventHandler(this.LastName_Click);
+			// 
+			// textBox3
+			// 
+			this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox3.Location = new System.Drawing.Point(270, 77);
+			this.textBox3.Name = "textBox3";
+			this.textBox3.Size = new System.Drawing.Size(268, 20);
+			this.textBox3.TabIndex = 24;
+			this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dateTimePicker1.Location = new System.Drawing.Point(270, 225);
+			this.dateTimePicker1.MaxDate = new System.DateTime(2004, 12, 31, 0, 0, 0, 0);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(268, 20);
+			this.dateTimePicker1.TabIndex = 36;
+			this.dateTimePicker1.Value = new System.DateTime(2004, 12, 31, 0, 0, 0, 0);
+			this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
 			// 
 			// tableLayoutPanel2
 			// 
@@ -266,17 +270,17 @@
 			this.tableLayoutPanel2.Size = new System.Drawing.Size(541, 63);
 			this.tableLayoutPanel2.TabIndex = 79;
 			// 
-			// Back
+			// ShowData
 			// 
-			this.Back.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Back.Location = new System.Drawing.Point(3, 3);
-			this.Back.Name = "Back";
-			this.Back.Size = new System.Drawing.Size(174, 57);
-			this.Back.TabIndex = 37;
-			this.Back.Text = "<- Back";
-			this.Back.UseVisualStyleBackColor = true;
-			this.Back.Click += new System.EventHandler(this.Back_Click);
+			this.ShowData.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ShowData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ShowData.Location = new System.Drawing.Point(363, 3);
+			this.ShowData.Name = "ShowData";
+			this.ShowData.Size = new System.Drawing.Size(175, 57);
+			this.ShowData.TabIndex = 36;
+			this.ShowData.Text = "ShowData";
+			this.ShowData.UseVisualStyleBackColor = true;
+			this.ShowData.Click += new System.EventHandler(this.ShowData_Click);
 			// 
 			// Save
 			// 
@@ -290,17 +294,17 @@
 			this.Save.UseVisualStyleBackColor = true;
 			this.Save.Click += new System.EventHandler(this.Save_Click);
 			// 
-			// ShowData
+			// Back
 			// 
-			this.ShowData.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.ShowData.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ShowData.Location = new System.Drawing.Point(363, 3);
-			this.ShowData.Name = "ShowData";
-			this.ShowData.Size = new System.Drawing.Size(175, 57);
-			this.ShowData.TabIndex = 36;
-			this.ShowData.Text = "ShowData";
-			this.ShowData.UseVisualStyleBackColor = true;
-			this.ShowData.Click += new System.EventHandler(this.ShowData_Click);
+			this.Back.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.Back.Location = new System.Drawing.Point(3, 3);
+			this.Back.Name = "Back";
+			this.Back.Size = new System.Drawing.Size(174, 57);
+			this.Back.TabIndex = 37;
+			this.Back.Text = "<- Back";
+			this.Back.UseVisualStyleBackColor = true;
+			this.Back.Click += new System.EventHandler(this.Back_Click);
 			// 
 			// tableLayoutPanel3
 			// 
@@ -321,6 +325,7 @@
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(800, 450);
 			this.tableLayoutPanel3.TabIndex = 80;
+			this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
 			// 
 			// AddStudent
 			// 
@@ -347,7 +352,6 @@
 		public System.Windows.Forms.Label RegNo;
 		public System.Windows.Forms.TextBox textBox1;
 		public System.Windows.Forms.Label FirstName;
-		public System.Windows.Forms.TextBox textBox6;
 		public System.Windows.Forms.Label DOB;
 		public System.Windows.Forms.ComboBox comboBox1;
 		public System.Windows.Forms.Label Email;
@@ -363,5 +367,6 @@
 		public System.Windows.Forms.Button Save;
 		private System.Windows.Forms.Button Back;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+		public System.Windows.Forms.DateTimePicker dateTimePicker1;
 	}
 }

@@ -14,27 +14,34 @@ namespace Dblab
 {
 	public partial class Project : Form
 	{
+		public int Flag2 = 0;
 		SqlCommand cmd;
 		DataTable dt;
 		int ID = 0;
-		SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con1 = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		public Project()
 		{
 			InitializeComponent();
+			Flag2 = 0;
+		}
+
+		public Project(int f)
+		{
+			InitializeComponent();
+			Flag2 = f;
 		}
 
 		private void DisplayProject()
 		{
 			SqlDataAdapter adp;
-			con.Open();
+			con1.Open();
 			DataTable dt = new DataTable();
-			adp = new SqlDataAdapter("SELECT * FROM Project", con);
+			adp = new SqlDataAdapter("SELECT * FROM Project", con1);
 			adp.Fill(dt);
 			dataGridView1.DataSource = dt;
 
 			DataGridViewButtonColumn deleteB;
 			deleteB = new DataGridViewButtonColumn();
-			//deleteB.HeaderText = "Delete";
 			deleteB.Text = "Delete";
 			deleteB.UseColumnTextForButtonValue = true;
 			deleteB.Width = 60;
@@ -45,7 +52,20 @@ namespace Dblab
 				dataGridView1.Rows[a].Cells[0].ReadOnly = true;
 				a++;
 			}
-			con.Close();
+			DataGridViewButtonColumn UpData;
+			UpData = new DataGridViewButtonColumn();
+			UpData.HeaderText = "Update";
+			UpData.Text = "Update";
+			UpData.UseColumnTextForButtonValue = true;
+			UpData.Width = 60;
+			dataGridView1.Columns.Add(UpData);
+			int b = 0;
+			while (b < dataGridView1.Rows.Count)
+			{
+				dataGridView1.Rows[b].Cells[0].ReadOnly = true;
+				b++;
+			}
+			con1.Close();
 		}
 
 		private void PersonInformation_Load(object sender, EventArgs e)
@@ -55,40 +75,70 @@ namespace Dblab
 
 		private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
 		{
-			con.Open();
+			con1.Open();
 			int URow = int.Parse(e.RowIndex.ToString());
 			int URowIndex = int.Parse(e.ColumnIndex.ToString());
+			int dd = (int)dataGridView1.CurrentRow.Cells[0].Value;
 			ID = Convert.ToInt32(dataGridView1.Rows[URow].Cells[0].Value.ToString());
-			if (URowIndex == 0)
+			if (URowIndex == 3)
 			{
-				MessageBox.Show("Click on delete button");
-			}
-			if (URowIndex != 0)
-			{
-				var askfirst = MessageBox.Show("Are you sure you want to delete this?", "Delete", MessageBoxButtons.YesNo);
-				if (askfirst == DialogResult.Yes)
+				if (URowIndex == 0)
 				{
-					cmd = new SqlCommand("DELETE FROM Project where ID = @Id", con);
-					cmd.Parameters.AddWithValue("@Id", ID);
-					cmd.ExecuteNonQuery();
-					con.Close();
-					MessageBox.Show("Deleted Succesfully");
-
-					this.Hide();
-					Project f1 = new Project();
-					f1.ShowDialog();
-					this.Close();
-
+					MessageBox.Show("Click on delete button");
+				}
+				if (URowIndex != 0)
+				{
+					var askfirst = MessageBox.Show("Are you sure you want to delete this?", "Delete", MessageBoxButtons.YesNo);
+					if (askfirst == DialogResult.Yes)
+					{
+						cmd = new SqlCommand("DELETE FROM Project where ID = @Id", con1);
+						cmd.Parameters.AddWithValue("@Id", ID);
+						cmd.ExecuteNonQuery();
+						con1.Close();
+						MessageBox.Show("Deleted Succesfully");
+						this.Hide();
+						Project f1 = new Project();
+						f1.ShowDialog();
+						this.Close();
+					}
 
 				}
 			}
-			//MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-			ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-			textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-			textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+			else if (URowIndex == 4)
+			{
+				int d1 = (int)dataGridView1.CurrentRow.Cells[0].Value;
+				if (URowIndex == 0)
+				{
+					MessageBox.Show("Click again");
+				}
+				if (URowIndex != 0)
+				{
+					var askfirst1 = MessageBox.Show("Are you sure you want to Update this?", "Update", MessageBoxButtons.YesNo);
+					if (askfirst1 == DialogResult.Yes)
+					{
+						Flag2 = d1;
 
+						richTextBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+						textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+						con1.Close();
+						
+					}
+					else
+					{
+						con1.Close();
+						this.Hide();
+						Project f2 = new Project();
+						f2.ShowDialog();
+						
+					}
+				}
+			}
+			else
+			{
+				con1.Close();
+			}
 		}
-
+	
 		private void Delete_Click(object sender, EventArgs e)
 		{
 			
@@ -97,11 +147,8 @@ namespace Dblab
 
 		private void Show_Click(object sender, EventArgs e)
 		{
-			DisplayProject();
-			this.Hide();
-			Project f1 = new Project();
-			f1.ShowDialog();
-			this.Close();
+			
+				
 		}
 
 		private void Update_Click(object sender, EventArgs e)
@@ -121,22 +168,42 @@ namespace Dblab
 
 		private void Insert_Click(object sender, EventArgs e)
 		{
-			if (textBox2.Text != "" && textBox1.Text != "" && textBox2.Text != "")
+			if (textBox2.Text != "" )
 			{
-				if (Regex.IsMatch(textBox2.Text, @"^[a-zA-Z]+$") && Regex.IsMatch(textBox1.Text, @"^^[a-zA-Z\s]+$"))
+				if (Regex.IsMatch(textBox2.Text, @"^[a-zA-Z0-9]+$"))
 				{
-					cmd = new SqlCommand("insert into Project (Description, Title) values ('" + textBox1.Text + "','" + textBox2.Text + "') ", con);
-					con.Open();
-					cmd.ExecuteNonQuery();
-					con.Close();
-					MessageBox.Show("Inserted Successfully");
-					DisplayProject();
-					this.Hide();
-					Project f1 = new Project();
-					f1.ShowDialog();
-					this.Close();
-					Clear();
-
+					if (Flag2 == 0)
+					{
+						con1.Open();
+						cmd = new SqlCommand("insert into Project (Description, Title) values ('" + richTextBox1.Text + "','" + textBox2.Text + "') ", con1);
+						cmd.ExecuteNonQuery();
+						con1.Close();
+						MessageBox.Show("Inserted Successfully");
+						DisplayProject();
+						this.Hide();
+						Project f1 = new Project();
+						f1.ShowDialog();
+						this.Close();
+						Clear();
+					}
+					else if (Flag2 > 0)
+					{
+						con1.Open();
+						cmd = new SqlCommand("UPDATE Project set Description = @Description, Title = @Title  WHERE ID = @Id", con1);
+						cmd.Parameters.AddWithValue("@Id", Flag2);
+						cmd.Parameters.AddWithValue("@Title", textBox2.Text);
+						cmd.Parameters.AddWithValue("@Description", richTextBox1.Text);
+						cmd.ExecuteNonQuery();
+						con1.Close();
+						MessageBox.Show("Updated successfully");
+						this.Hide();
+						Project f1 = new Project();
+						f1.ShowDialog();
+						this.Close();
+						Clear();
+						Flag2 = 0;
+					}
+					
 				}
 				else
 				{
@@ -147,10 +214,11 @@ namespace Dblab
 			{
 				MessageBox.Show("Please enter record");
 			}
+			con1.Close();
 		}
 		private void Clear()
 		{
-			textBox1.Clear();
+			richTextBox1.Clear();
 			textBox2.Clear();
 		}
 
@@ -163,6 +231,16 @@ namespace Dblab
 		}
 
 		private void tableLayoutPanel7_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void richTextBox1_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
 		{
 
 		}

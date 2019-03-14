@@ -19,7 +19,7 @@ namespace Dblab
 		{
 			InitializeComponent();
 		}
-		public int Flag = 0;
+		public int Flag1 = 0;
 		SqlCommand cmd1;
 		SqlCommand cmd2;
 		SqlConnection con1 = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
@@ -30,7 +30,7 @@ namespace Dblab
 		public Advisor(int f)
 		{
 			InitializeComponent();
-			Flag = f;
+			Flag1 = f;
 		}
 
 		private void DisplayAdvisor()
@@ -39,7 +39,7 @@ namespace Dblab
 			*/
 			con1.Open();
 			DataTable dt = new DataTable();
-			adp = new SqlDataAdapter("SELECT * FROM Student JOIN Advisor ON Student.Id = Person.Id ", con1);
+			adp = new SqlDataAdapter("SELECT Person.Id, Person.FirstName, Person.LastName, Person.Contact, Person.Email, Person.DateOfBirth, Person.Gender, Advisor.Designation, Advisor.Salary  FROM Person JOIN Advisor ON Person.Id =  Advisor.Id ", con1);
 			adp.Fill(dt);
 			dataGridView1.DataSource = dt;
 
@@ -97,7 +97,9 @@ namespace Dblab
 			int UP_Row = int.Parse(e.RowIndex.ToString());
 			int UP_RowIndex = int.Parse(e.ColumnIndex.ToString());
 			ID1 = Convert.ToInt32(dataGridView1.Rows[UP_Row].Cells[0].Value.ToString());
-			if (UP_RowIndex == 11)
+			int dd = (int)dataGridView1.CurrentRow.Cells[0].Value;
+
+			if (UP_RowIndex == 10)
 			{
 				if (UP_RowIndex == 1)
 
@@ -110,42 +112,61 @@ namespace Dblab
 					var askfirst1 = MessageBox.Show("Are you sure you want to Update this?", "Update", MessageBoxButtons.YesNo);
 					if (askfirst1 == DialogResult.Yes)
 					{
-						AddStudent s = new AddStudent(1);
+						Add_Advisor s = new Add_Advisor(dd);
 						ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-						s.textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-						s.textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-						s.textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
-						s.textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-						s.textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
-						s.textBox6.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
-						if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value) == 1)
+						s.textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+						s.textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+						s.textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+						s.textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
+						s.dateTimePicker1.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
+						s.textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString();
+						if (dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString() == "")
+						{
+							s.comboBox1.Text = "";
+						}
+						else if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value) == 1)
 						{
 							s.comboBox1.Text = "Male";
 						}
-						if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value) == 2)
+						else if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[6].Value) == 2)
 						{
 							s.comboBox1.Text = "Female";
 
 						}
-
-
+						if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value) == 6)
+						{
+							s.comboBox2.Text = "Professor";
+						}
+						if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value) == 7)
+						{
+							s.comboBox2.Text = "Associate Professor";
+						}
+						if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value) == 8)
+						{
+							s.comboBox2.Text = "Assisstant Professor";
+						}
+						if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value) == 9)
+						{
+							s.comboBox2.Text = "Lecturer";
+						}
+						if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value) == 10)
+						{
+							s.comboBox2.Text = "Industry Professional";
+						}
 						s.ShowDialog();
 						con1.Close();
-
-
-
 					}
 					else
 					{
 						con1.Close();
 						this.Hide();
-						Student f2 = new Student();
+						Advisor f2 = new Advisor();
 						f2.ShowDialog();
 						DisplayAdvisor();
 					}
 				}
 			}
-			else if (UP_RowIndex == 10)
+			else if (UP_RowIndex == 9)
 			{
 				int URow = int.Parse(e.RowIndex.ToString());
 				int URowIndex = int.Parse(e.ColumnIndex.ToString());
@@ -153,7 +174,7 @@ namespace Dblab
 
 				if (URowIndex == 0)
 				{
-					MessageBox.Show("lala");
+					MessageBox.Show("Click on Delete Again");
 				}
 				if (URowIndex != 0)
 				{
@@ -171,7 +192,7 @@ namespace Dblab
 						MessageBox.Show("Deleted Succesfully");
 
 						this.Hide();
-						Student f2 = new Student();
+						Advisor f2 = new Advisor();
 						f2.ShowDialog();
 						this.Close();
 					}
@@ -179,7 +200,7 @@ namespace Dblab
 					{
 						con1.Close();
 						this.Hide();
-						Student f2 = new Student();
+						Advisor f2 = new Advisor();
 						f2.ShowDialog();
 						DisplayAdvisor();
 

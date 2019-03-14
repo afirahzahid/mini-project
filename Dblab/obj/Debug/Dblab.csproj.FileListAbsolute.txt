@@ -20,6 +20,6 @@ C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.exe
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.pdb
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.Project.resources
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.AddStudent.resources
-C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.csprojAssemblyReference.cache
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.Add_Advisor.resources
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.Advisor.resources
+C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.csprojAssemblyReference.cache

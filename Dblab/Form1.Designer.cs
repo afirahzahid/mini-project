@@ -31,7 +31,6 @@
 			this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
 			this.dataGridView1 = new System.Windows.Forms.DataGridView();
 			this.Back = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
 			this.Show_Data = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
 			this.textBox3 = new System.Windows.Forms.TextBox();
@@ -77,25 +76,13 @@
 			this.Back.UseVisualStyleBackColor = true;
 			this.Back.Click += new System.EventHandler(this.Back_Click);
 			// 
-			// button1
-			// 
-			this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button1.Location = new System.Drawing.Point(221, 3);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(106, 37);
-			this.button1.TabIndex = 1;
-			this.button1.Text = "Update";
-			this.button1.UseVisualStyleBackColor = true;
-			this.button1.Click += new System.EventHandler(this.button1_Click);
-			// 
 			// Show_Data
 			// 
 			this.Show_Data.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Show_Data.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Show_Data.Location = new System.Drawing.Point(112, 3);
+			this.Show_Data.Location = new System.Drawing.Point(168, 3);
 			this.Show_Data.Name = "Show_Data";
-			this.Show_Data.Size = new System.Drawing.Size(103, 37);
+			this.Show_Data.Size = new System.Drawing.Size(159, 37);
 			this.Show_Data.TabIndex = 12;
 			this.Show_Data.Text = "Show Data";
 			this.Show_Data.UseVisualStyleBackColor = true;
@@ -107,7 +94,7 @@
 			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.button3.Location = new System.Drawing.Point(3, 3);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(103, 37);
+			this.button3.Size = new System.Drawing.Size(159, 37);
 			this.button3.TabIndex = 3;
 			this.button3.Text = "Insert";
 			this.button3.UseVisualStyleBackColor = true;
@@ -120,6 +107,7 @@
 			this.textBox3.Name = "textBox3";
 			this.textBox3.Size = new System.Drawing.Size(170, 20);
 			this.textBox3.TabIndex = 10;
+			this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
 			// 
 			// TotalMarks
 			// 
@@ -180,11 +168,9 @@
 			// 
 			// tableLayoutPanel2
 			// 
-			this.tableLayoutPanel2.ColumnCount = 3;
+			this.tableLayoutPanel2.ColumnCount = 2;
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
 			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel2.Controls.Add(this.button1, 2, 0);
 			this.tableLayoutPanel2.Controls.Add(this.Show_Data, 1, 0);
 			this.tableLayoutPanel2.Controls.Add(this.button3, 0, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -217,6 +203,7 @@
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(672, 107);
 			this.tableLayoutPanel3.TabIndex = 19;
+			this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -298,7 +285,6 @@
 		private System.Windows.Forms.TextBox textBox4;
 		private System.Windows.Forms.Label TotalMarks;
 		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button Show_Data;
 		private System.Windows.Forms.Button button3;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

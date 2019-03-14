@@ -31,7 +31,6 @@
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
 			this.FirstName = new System.Windows.Forms.Label();
-			this.textBox6 = new System.Windows.Forms.TextBox();
 			this.DOB = new System.Windows.Forms.Label();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.Email = new System.Windows.Forms.Label();
@@ -44,13 +43,14 @@
 			this.textBox3 = new System.Windows.Forms.TextBox();
 			this.label1 = new System.Windows.Forms.Label();
 			this.label2 = new System.Windows.Forms.Label();
+			this.comboBox2 = new System.Windows.Forms.ComboBox();
+			this.textBox1 = new System.Windows.Forms.TextBox();
+			this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.ShowData = new System.Windows.Forms.Button();
 			this.Save = new System.Windows.Forms.Button();
 			this.Back = new System.Windows.Forms.Button();
 			this.Advisor = new System.Windows.Forms.Button();
-			this.comboBox2 = new System.Windows.Forms.ComboBox();
-			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.tableLayoutPanel3.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
@@ -74,6 +74,7 @@
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(800, 450);
 			this.tableLayoutPanel3.TabIndex = 81;
+			this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
 			// 
 			// tableLayoutPanel1
 			// 
@@ -81,7 +82,6 @@
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.Controls.Add(this.FirstName, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.textBox6, 1, 5);
 			this.tableLayoutPanel1.Controls.Add(this.DOB, 0, 5);
 			this.tableLayoutPanel1.Controls.Add(this.comboBox1, 1, 2);
 			this.tableLayoutPanel1.Controls.Add(this.Email, 0, 4);
@@ -96,7 +96,7 @@
 			this.tableLayoutPanel1.Controls.Add(this.label2, 0, 7);
 			this.tableLayoutPanel1.Controls.Add(this.comboBox2, 1, 6);
 			this.tableLayoutPanel1.Controls.Add(this.textBox1, 1, 7);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 5);
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(105, 64);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 8;
@@ -122,15 +122,6 @@
 			this.FirstName.TabIndex = 29;
 			this.FirstName.Text = "First Name";
 			// 
-			// textBox6
-			// 
-			this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox6.Location = new System.Drawing.Point(273, 163);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(265, 20);
-			this.textBox6.TabIndex = 27;
-			this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-			// 
 			// DOB
 			// 
 			this.DOB.AutoSize = true;
@@ -145,6 +136,7 @@
 			// comboBox1
 			// 
 			this.comboBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.comboBox1.FormattingEnabled = true;
 			this.comboBox1.Items.AddRange(new object[] {
             "Male",
@@ -165,6 +157,7 @@
 			this.Email.Size = new System.Drawing.Size(264, 32);
 			this.Email.TabIndex = 32;
 			this.Email.Text = "Email";
+			this.Email.Click += new System.EventHandler(this.Email_Click);
 			// 
 			// textBox5
 			// 
@@ -225,6 +218,7 @@
 			this.LastName.Size = new System.Drawing.Size(264, 32);
 			this.LastName.TabIndex = 30;
 			this.LastName.Text = "Last Name";
+			this.LastName.Click += new System.EventHandler(this.LastName_Click);
 			// 
 			// textBox3
 			// 
@@ -256,6 +250,43 @@
 			this.label2.Size = new System.Drawing.Size(264, 39);
 			this.label2.TabIndex = 39;
 			this.label2.Text = "Salary";
+			// 
+			// comboBox2
+			// 
+			this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.comboBox2.FormattingEnabled = true;
+			this.comboBox2.Items.AddRange(new object[] {
+            "Professor",
+            "Associate Professor",
+            "Assisstant Professor",
+            "Lecturer",
+            "Industry Professional"});
+			this.comboBox2.Location = new System.Drawing.Point(273, 195);
+			this.comboBox2.Name = "comboBox2";
+			this.comboBox2.Size = new System.Drawing.Size(265, 21);
+			this.comboBox2.TabIndex = 40;
+			this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+			// 
+			// textBox1
+			// 
+			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.textBox1.Location = new System.Drawing.Point(273, 227);
+			this.textBox1.Name = "textBox1";
+			this.textBox1.Size = new System.Drawing.Size(265, 20);
+			this.textBox1.TabIndex = 41;
+			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+			// 
+			// dateTimePicker1
+			// 
+			this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.dateTimePicker1.Location = new System.Drawing.Point(273, 163);
+			this.dateTimePicker1.MaxDate = new System.DateTime(2004, 12, 31, 0, 0, 0, 0);
+			this.dateTimePicker1.Name = "dateTimePicker1";
+			this.dateTimePicker1.Size = new System.Drawing.Size(265, 20);
+			this.dateTimePicker1.TabIndex = 42;
+			this.dateTimePicker1.Value = new System.DateTime(2004, 12, 31, 0, 0, 0, 0);
+			this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
 			// 
 			// tableLayoutPanel2
 			// 
@@ -320,31 +351,7 @@
 			this.Advisor.TabIndex = 80;
 			this.Advisor.Text = "Add Advisor";
 			this.Advisor.UseVisualStyleBackColor = true;
-			// 
-			// comboBox2
-			// 
-			this.comboBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.comboBox2.FormattingEnabled = true;
-			this.comboBox2.Items.AddRange(new object[] {
-            "Professor",
-            "Associate Professor",
-            "Assisstant Professor",
-            "Lecturer",
-            "Industry Professional"});
-			this.comboBox2.Location = new System.Drawing.Point(273, 195);
-			this.comboBox2.Name = "comboBox2";
-			this.comboBox2.Size = new System.Drawing.Size(265, 21);
-			this.comboBox2.TabIndex = 40;
-			this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
-			// 
-			// textBox1
-			// 
-			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox1.Location = new System.Drawing.Point(273, 227);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(265, 20);
-			this.textBox1.TabIndex = 41;
-			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+			this.Advisor.Click += new System.EventHandler(this.Advisor_Click);
 			// 
 			// Add_Advisor
 			// 
@@ -371,7 +378,6 @@
 		private System.Windows.Forms.Button Back;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
 		public System.Windows.Forms.Label FirstName;
-		public System.Windows.Forms.TextBox textBox6;
 		public System.Windows.Forms.Label DOB;
 		public System.Windows.Forms.ComboBox comboBox1;
 		public System.Windows.Forms.Label Email;
@@ -385,7 +391,8 @@
 		private System.Windows.Forms.Button Advisor;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.ComboBox comboBox2;
-		private System.Windows.Forms.TextBox textBox1;
+		public System.Windows.Forms.ComboBox comboBox2;
+		public System.Windows.Forms.TextBox textBox1;
+		public System.Windows.Forms.DateTimePicker dateTimePicker1;
 	}
 }

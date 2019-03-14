@@ -14,6 +14,7 @@ namespace Dblab
 {
 	public partial class Evaluation : Form
 	{
+		public int Flag3 = 0;
 		SqlCommand cmd;
 		SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		SqlDataAdapter adp;
@@ -21,6 +22,13 @@ namespace Dblab
 		public Evaluation()
 		{
 			InitializeComponent();
+			Flag3 = 0;
+		}
+
+		public Evaluation(int f)
+		{
+			InitializeComponent();
+			Flag3 = f;
 		}
 
 		private void Evaluation_Load(object sender, EventArgs e)
@@ -74,58 +82,68 @@ namespace Dblab
 			int URow = int.Parse(e.RowIndex.ToString());
 			int URowIndex = int.Parse(e.ColumnIndex.ToString());
 			ID = Convert.ToInt32(dataGridView1.Rows[URow].Cells[0].Value.ToString());
-			if (URowIndex == 0)
+			if (URowIndex == 4)
 			{
-				MessageBox.Show("Click on delete button");
-			}
-			if (URowIndex != 0)
-			{
-				var askfirst = MessageBox.Show("Are you sure you want to delete this?", "Delete", MessageBoxButtons.YesNo);
-				if (askfirst == DialogResult.Yes)
+				if (URowIndex == 0)
 				{
-					cmd = new SqlCommand("DELETE FROM Evaluation where ID = @Id", con);
-					cmd.Parameters.AddWithValue("@Id", ID);
-					cmd.ExecuteNonQuery();
-					con.Close();
-					MessageBox.Show("Deleted Succesfully");
+					MessageBox.Show("Click on delete button");
+				}
+				if (URowIndex != 0)
+				{
+					var askfirst = MessageBox.Show("Are you sure you want to delete this?", "Delete", MessageBoxButtons.YesNo);
+					if (askfirst == DialogResult.Yes)
+					{
+						cmd = new SqlCommand("DELETE FROM Evaluation where ID = @Id", con);
+						cmd.Parameters.AddWithValue("@Id", ID);
+						cmd.ExecuteNonQuery();
+						con.Close();
+						MessageBox.Show("Deleted Succesfully");
 
-					this.Hide();
-					Evaluation f1 = new Evaluation();
-					f1.ShowDialog();
-					this.Close();
-
-
+						this.Hide();
+						Evaluation f1 = new Evaluation();
+						f1.ShowDialog();
+						this.Close();
+					}
 				}
 			}
-				//MessageBox.Show(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-				ID = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-				textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-				textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-				textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
-		}
-		private void button1_Click(object sender, EventArgs e)
-		{
-			if (textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "")
+			else if (URowIndex == 5)
 			{
-				cmd = new SqlCommand("UPDATE Evaluation set Name = @name, TotalMarks = @TotalMarks, Totalweightage = @Totalweightage where ID = @id", con);
-				cmd.Parameters.AddWithValue("@id", ID);
-				cmd.Parameters.AddWithValue("@name", textBox2.Text); 
-				cmd.Parameters.AddWithValue("@Totalweightage", textBox3.Text);
-				cmd.Parameters.AddWithValue("@TotalMarks", textBox4.Text);
-				con.Open();
-				cmd.ExecuteNonQuery();
-				con.Close();
-				MessageBox.Show("Updated successfully");
-				DisplayEval();
+				int d1 = (int)dataGridView1.CurrentRow.Cells[0].Value;
+				if (URowIndex == 0)
+				{
+					MessageBox.Show("Click again");
+				}
+				if (URowIndex != 0)
+				{
+					var askfirst1 = MessageBox.Show("Are you sure you want to Update this?", "Update", MessageBoxButtons.YesNo);
+					if (askfirst1 == DialogResult.Yes)
+					{
+						Flag3 = d1;
+						textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+						textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+						textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
+						con.Close();
+					}
+					else
+					{
+						con.Close();
+						this.Hide();
+						Project f2 = new Project();
+						f2.ShowDialog();
+
+					}
+				}
 			}
 			else
 			{
-				MessageBox.Show("Select data");
+				con.Close();
 			}
+		
+		}
+		private void button1_Click(object sender, EventArgs e)
+		{
 
 		}
-
-
 
 		private void button3_Click(object sender, EventArgs e)
 		{
@@ -135,18 +153,39 @@ namespace Dblab
 				{
 					if (System.Text.RegularExpressions.Regex.IsMatch(textBox3.Text, "^[0-9]*$") && (System.Text.RegularExpressions.Regex.IsMatch(textBox4.Text, "^[0-9]*$")))
 					{
-						cmd = new SqlCommand("insert into Evaluation (Evaluation.Name, TotalMarks, TotalWeightage) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "') ", con);
-						con.Open();
-						cmd.ExecuteNonQuery();
-						con.Close();
-						MessageBox.Show("Inserted Successfully");
-						DisplayEval();
-						this.Hide();
-						Evaluation f1 = new Evaluation();
-						f1.ShowDialog();
-						this.Close();
-						Clear();
+						if (Flag3 == 0)
+						{
+							cmd = new SqlCommand("insert into Evaluation (Evaluation.Name, TotalMarks, TotalWeightage) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "') ", con);
+							con.Open();
+							cmd.ExecuteNonQuery();
+							con.Close();
+							MessageBox.Show("Inserted Successfully");
+							DisplayEval();
+							this.Hide();
+							Evaluation f1 = new Evaluation();
+							f1.ShowDialog();
+							this.Close();
+							Clear();
 
+						}
+						else if (Flag3 > 0)
+						{
+							con.Open();
+							cmd = new SqlCommand("UPDATE Evaluation set Name = @name, TotalMarks = @TotalMarks, Totalweightage = @Totalweightage where ID = @id", con);
+							cmd.Parameters.AddWithValue("@id", Flag3);
+							cmd.Parameters.AddWithValue("@name", textBox2.Text);
+							cmd.Parameters.AddWithValue("@Totalweightage", textBox3.Text);
+							cmd.Parameters.AddWithValue("@TotalMarks", textBox4.Text);
+							cmd.ExecuteNonQuery();
+							con.Close();
+							MessageBox.Show("Updated successfully");
+							this.Hide();
+							Evaluation f1 = new Evaluation();
+							f1.ShowDialog();
+							this.Close();
+							Clear();
+							Flag3 = 0;
+						}
 					}
 					else
 					{
@@ -164,6 +203,7 @@ namespace Dblab
 				MessageBox.Show("Please enter record");
 
 			}
+			con.Close();
 		}
 
 		private void ID_Click(object sender, EventArgs e)
@@ -230,6 +270,16 @@ namespace Dblab
 		}
 
 		private void flowLayoutPanel7_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void textBox3_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
 		{
 
 		}
