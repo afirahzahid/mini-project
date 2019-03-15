@@ -117,6 +117,80 @@ namespace Dblab
 		{
 
 		}
+		bool Email_exists(string Email_Id)
+		{
+			con1.Open();
+			bool a = false;
+			SqlDataAdapter sda = new SqlDataAdapter("Select * from Person", con1);
+			DataTable dt = new DataTable();
+			sda.Fill(dt);
+			foreach (DataRow row in dt.Rows)
+			{
+				if (row["Email"].ToString() == Email_Id)
+				{
+					con1.Close();
+					return true;
+				}
+			}
+			con1.Close();
+			return a;
+		}
+
+		bool UpdateEmail_exists(string Email_Id)
+		{
+			con1.Open();
+			bool a = false;
+			SqlDataAdapter sda = new SqlDataAdapter("Select * from Person", con1);
+			DataTable dt = new DataTable();
+			sda.Fill(dt);
+			foreach (DataRow row in dt.Rows)
+			{
+				if (row["Email"].ToString() == Email_Id  && (Convert.ToInt32(row["Id"]) != Flag))
+				{
+					con1.Close();
+					return true;
+				}
+			}
+			con1.Close();
+			return a;
+		}
+
+		bool Reg_exists(string RegNO)
+		{
+			con1.Open();
+			bool a = false;
+			SqlDataAdapter sda = new SqlDataAdapter("Select * from Student", con1);
+			DataTable dt = new DataTable();
+			sda.Fill(dt);
+			foreach (DataRow row in dt.Rows)
+			{
+				if (row["RegistrationNo"].ToString() == RegNO)
+				{
+					con1.Close();
+					return true;
+				}
+			}
+			con1.Close();
+			return a;
+		}
+		bool UpdateReg_exists(string RegNO)
+		{
+			con1.Open();
+			bool a = false;
+			SqlDataAdapter sda = new SqlDataAdapter("Select * from Student", con1);
+			DataTable dt = new DataTable();
+			sda.Fill(dt);
+			foreach (DataRow row in dt.Rows)
+			{
+				if (row["RegistrationNo"].ToString() == RegNO && (Convert.ToInt32(row["Id"]) != Flag))
+				{
+					con1.Close();
+					return true;
+				}
+			}
+			con1.Close();
+			return a;
+		}
 
 		private void Save_Click(object sender, EventArgs e)
 		{
@@ -128,128 +202,186 @@ namespace Dblab
 				{
 					if ((Regex.IsMatch(textBox3.Text, @"^[a-zA-Z\s]+$") && Regex.IsMatch(textBox4.Text, @"^9[0-9]{9}")) || (textBox3.Text == "" && Regex.IsMatch(textBox4.Text, @"^9[0-9]{9}")) || (!Regex.IsMatch(textBox3.Text, @"^[a-zA-Z0-9_\-]+$") && Regex.IsMatch(textBox4.Text, @"^9[0-9]{9}")) || (Regex.IsMatch(textBox3.Text, @"^[a-zA-Z\s]+$") && textBox4.Text == "") || (textBox3.Text == "" && textBox4.Text == ""))
 					{
-						con1.Open();
-						SqlCommand cmdd = new SqlCommand("Select Count(*) From Person WHERE Email = @email", con1);
-						cmdd.Parameters.AddWithValue("@email", textBox5.Text);
-						int r = Convert.ToInt32(cmdd.ExecuteNonQuery());
-						if (r == -1)
+						if (comboBox1.Text != "")
 						{
-							if (comboBox1.Text != "")
+							if (Flag == 0)
 							{
-								if (Flag == 0)
+								bool reg = Reg_exists(textBox1.Text);
+								if (reg == false)
 								{
-									
-									cmd2 = new SqlCommand("insert into Student(Student.Id, Student.RegistrationNo) values ((SELECT MAX(Person.Id) From Person), '" + textBox1.Text + "')", con1);
-									string gId = string.Format("SELECT Lookup.Id From Lookup WHERE Value = '{0}'", comboBox1.Text);
-									SqlCommand cmd3 = new SqlCommand(gId, con1);
-									int g = (Int32)cmd3.ExecuteScalar();
-									cmd1 = new SqlCommand("insert into [Person] (FirstName, LastName, Contact, Email, DateOfBirth, gender) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + dateTimePicker1.Text + "','" + g + "')", con1);
-									cmd1.ExecuteNonQuery();
-									cmd2.ExecuteNonQuery();
-									cmd3.ExecuteNonQuery();
-									con1.Close();
-									MessageBox.Show("Inserted Successfully");
-									
-									textBox2.Clear();
-									textBox3.Clear();
-									textBox4.Clear();
-									textBox1.Clear();
-									textBox5.Clear();
-									this.Hide();
-									AddStudent f4 = new AddStudent();
-									f4.ShowDialog();
-									this.Close();
+									bool  email = Email_exists(textBox5.Text);
+									if (email == false)
+									{
+										con1.Open();
+										cmd2 = new SqlCommand("insert into Student(Student.Id, Student.RegistrationNo) values ((SELECT MAX(Person.Id) From Person), '" + textBox1.Text + "')", con1);
+										string gId = string.Format("SELECT Lookup.Id From Lookup WHERE Value = '{0}'", comboBox1.Text);
+										SqlCommand cmd3 = new SqlCommand(gId, con1);
+										int g = (Int32)cmd3.ExecuteScalar();
+										cmd1 = new SqlCommand("insert into [Person] (FirstName, LastName, Contact, Email, DateOfBirth, gender) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + dateTimePicker1.Text + "','" + g + "')", con1);
+										cmd1.ExecuteNonQuery();
+										cmd2.ExecuteNonQuery();
+										cmd3.ExecuteNonQuery();
+										con1.Close();
+										MessageBox.Show("Inserted Successfully");
+
+										textBox2.Clear();
+										textBox3.Clear();
+										textBox4.Clear();
+										textBox1.Clear();
+										textBox5.Clear();
+										this.Hide();
+										AddStudent f4 = new AddStudent();
+										f4.ShowDialog();
+										this.Close();
+									}
+									else
+									{
+										MessageBox.Show("Email Exists");
+									}
 								}
-								if (Flag > 0)
+								else
 								{
-									Student f = new Student();									
-									cmd1 = new SqlCommand("UPDATE Person set FirstName = @FirstName, LastName = @LastName ,Contact = @Contact, Email = @Email, DateOfBirth =@DateOfBirth, Gender = @Gender WHERE ID = @dd", con1);
-									cmd1.Parameters.AddWithValue("@dd", Flag);
-									cmd1.Parameters.AddWithValue("@FirstName", textBox2.Text);
-									cmd1.Parameters.AddWithValue("@LastName", textBox3.Text);
-									cmd1.Parameters.AddWithValue("@Contact", textBox4.Text);
-									cmd1.Parameters.AddWithValue("@Email", textBox5.Text);
-									cmd1.Parameters.AddWithValue("@DateOfBirth", dateTimePicker1.Text);
-									string gId = string.Format("SELECT Lookup.Id From Lookup WHERE Value = '{0}'", comboBox1.Text);
-									SqlCommand cmd3 = new SqlCommand(gId, con1);
-									int g = (Int32)cmd3.ExecuteScalar();
-									cmd1.Parameters.AddWithValue("@Gender", g);
-									cmd2 = new SqlCommand("UPDATE Student set RegistrationNo = @RegistrationNo WHERE ID = @Id", con1);
-									cmd2.Parameters.AddWithValue("RegistrationNo", textBox1.Text);
-									cmd2.Parameters.AddWithValue("@Id", Flag);
-									cmd1.ExecuteNonQuery();
-									cmd2.ExecuteNonQuery();
-									con1.Close();
-									MessageBox.Show("Updated successfully");
-									textBox2.Clear();
-									textBox3.Clear();
-									textBox4.Clear();
-									textBox1.Clear();
-									textBox5.Clear();
-									this.Hide();
-									AddStudent f4 = new AddStudent();
-									f4.ShowDialog();
-									this.Close();
-									Flag = 0;
+									MessageBox.Show("Registration no Exists");
 								}
 							}
-							else
+							if (Flag > 0)
 							{
-								if (Flag == 0)
+								bool Upemail = UpdateEmail_exists(textBox5.Text);
+								bool Upreg = UpdateReg_exists(textBox1.Text);
+								bool email = Email_exists(textBox5.Text);
+								bool reg = Reg_exists(textBox1.Text);
+								if (Upreg == false)
 								{
-									
-									cmd2 = new SqlCommand("insert into Student(Student.Id, Student.RegistrationNo) values ((SELECT MAX(Person.Id) From Person), '" + textBox1.Text + "')", con1);
-									cmd1 = new SqlCommand("insert into [Person] (FirstName, LastName, Contact, Email, DateOfBirth) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + dateTimePicker1.Text + "')", con1);
-									cmd1.ExecuteNonQuery();
-									cmd2.ExecuteNonQuery();
-									con1.Close();
-									MessageBox.Show("Inserted Successfully");
-									textBox2.Clear();
-									textBox3.Clear();
-									textBox4.Clear();
-									textBox1.Clear();
-									textBox5.Clear();
-									this.Hide();
-									AddStudent f4 = new AddStudent();
-									f4.ShowDialog();
-									this.Close();
+									if (Upemail == false)
+									{
+										con1.Open();
+										Student f = new Student();
+										cmd1 = new SqlCommand("UPDATE Person set FirstName = @FirstName, LastName = @LastName ,Contact = @Contact, Email = @Email, DateOfBirth =@DateOfBirth, Gender = @Gender WHERE ID = @dd", con1);
+										cmd1.Parameters.AddWithValue("@dd", Flag);
+										cmd1.Parameters.AddWithValue("@FirstName", textBox2.Text);
+										cmd1.Parameters.AddWithValue("@LastName", textBox3.Text);
+										cmd1.Parameters.AddWithValue("@Contact", textBox4.Text);
+										cmd1.Parameters.AddWithValue("@Email", textBox5.Text);
+										cmd1.Parameters.AddWithValue("@DateOfBirth", dateTimePicker1.Text);
+										string gId = string.Format("SELECT Lookup.Id From Lookup WHERE Value = '{0}'", comboBox1.Text);
+										SqlCommand cmd3 = new SqlCommand(gId, con1);
+										int g = (Int32)cmd3.ExecuteScalar();
+										cmd1.Parameters.AddWithValue("@Gender", g);
+										cmd2 = new SqlCommand("UPDATE Student set RegistrationNo = @RegistrationNo WHERE ID = @Id", con1);
+										cmd2.Parameters.AddWithValue("RegistrationNo", textBox1.Text);
+										cmd2.Parameters.AddWithValue("@Id", Flag);
+										cmd1.ExecuteNonQuery();
+										cmd2.ExecuteNonQuery();
+										con1.Close();
+										MessageBox.Show("Updated successfully");
+										textBox2.Clear();
+										textBox3.Clear();
+										textBox4.Clear();
+										textBox1.Clear();
+										textBox5.Clear();
+										this.Hide();
+										AddStudent f4 = new AddStudent();
+										f4.ShowDialog();
+										this.Close();
+										Flag = 0;
+									}
+									else
+									{
+										MessageBox.Show("Email Exits");
+									}
 								}
-								if (Flag > 0)
+								else
 								{
-									Student f = new Student();
-									cmd1 = new SqlCommand("UPDATE Person set FirstName = @FirstName, LastName = @LastName ,Contact = @Contact, Email = @Email, DateOfBirth =@DateOfBirth WHERE ID = @dd", con1);
-									cmd1.Parameters.AddWithValue("@dd", Flag);
-									cmd1.Parameters.AddWithValue("@FirstName", textBox2.Text);
-									cmd1.Parameters.AddWithValue("@LastName", textBox3.Text);
-									cmd1.Parameters.AddWithValue("@Contact", textBox4.Text);
-									cmd1.Parameters.AddWithValue("@Email", textBox5.Text);
-									cmd1.Parameters.AddWithValue("@DateOfBirth", dateTimePicker1.Text);
-									string gId = string.Format("SELECT Lookup.Id From Lookup WHERE Value = '{0}'", comboBox1.Text);
-									cmd2 = new SqlCommand("UPDATE Student set RegistrationNo = @RegistrationNo WHERE ID = @Id", con1);
-									cmd2.Parameters.AddWithValue("RegistrationNo", textBox1.Text);
-									cmd2.Parameters.AddWithValue("@Id", Flag);
-									cmd1.ExecuteNonQuery();
-									cmd2.ExecuteNonQuery();
-									con1.Close();
-									MessageBox.Show("Updated successfully");
-									textBox2.Clear();
-									textBox3.Clear();
-									textBox4.Clear();
-									textBox1.Clear();
-									textBox5.Clear();
-									this.Hide();
-									AddStudent f4 = new AddStudent();
-									f4.ShowDialog();
-									this.Close();
-									Flag = 0;
+									MessageBox.Show("Registration No Exits");
 								}
 							}
 						}
 						else
 						{
-							MessageBox.Show("This email already exists");
+							if (Flag == 0)
+							{
+								bool email = Email_exists(textBox5.Text);
+								bool reg = Reg_exists(textBox1.Text);
+								if (reg == false)
+								{
+									if (email == false)
+									{
+										con1.Open();
+										cmd2 = new SqlCommand("insert into Student(Student.Id, Student.RegistrationNo) values ((SELECT MAX(Person.Id) From Person), '" + textBox1.Text + "')", con1);
+										cmd1 = new SqlCommand("insert into [Person] (FirstName, LastName, Contact, Email, DateOfBirth) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + dateTimePicker1.Text + "')", con1);
+										cmd1.ExecuteNonQuery();
+										cmd2.ExecuteNonQuery();
+										con1.Close();
+										MessageBox.Show("Inserted Successfully");
+										textBox2.Clear();
+										textBox3.Clear();
+										textBox4.Clear();
+										textBox1.Clear();
+										textBox5.Clear();
+										this.Hide();
+										AddStudent f4 = new AddStudent();
+										f4.ShowDialog();
+										this.Close();
+									}
+									else
+									{
+										MessageBox.Show("Email Exists");
+									}
+								}
+								else
+								{
+									MessageBox.Show("Reg No Exists");
+								}
+							}
+							if (Flag > 0)
+							{
+								bool Upemail = UpdateEmail_exists(textBox5.Text);
+								bool Upreg = UpdateReg_exists(textBox1.Text);
+								bool email = Email_exists(textBox5.Text);
+								bool reg = Reg_exists(textBox1.Text);
+								if (Upreg == false)
+								{
+									if (Upemail == false )
+									{
+										con1.Open();
+										Student f = new Student();
+										cmd1 = new SqlCommand("UPDATE Person set FirstName = @FirstName, LastName = @LastName ,Contact = @Contact, Email = @Email, DateOfBirth =@DateOfBirth WHERE ID = @dd", con1);
+										cmd1.Parameters.AddWithValue("@dd", Flag);
+										cmd1.Parameters.AddWithValue("@FirstName", textBox2.Text);
+										cmd1.Parameters.AddWithValue("@LastName", textBox3.Text);
+										cmd1.Parameters.AddWithValue("@Contact", textBox4.Text);
+										cmd1.Parameters.AddWithValue("@Email", textBox5.Text);
+										cmd1.Parameters.AddWithValue("@DateOfBirth", dateTimePicker1.Text);
+										string gId = string.Format("SELECT Lookup.Id From Lookup WHERE Value = '{0}'", comboBox1.Text);
+										cmd2 = new SqlCommand("UPDATE Student set RegistrationNo = @RegistrationNo WHERE ID = @Id", con1);
+										cmd2.Parameters.AddWithValue("RegistrationNo", textBox1.Text);
+										cmd2.Parameters.AddWithValue("@Id", Flag);
+										cmd1.ExecuteNonQuery();
+										cmd2.ExecuteNonQuery();
+										con1.Close();
+										MessageBox.Show("Updated successfully");
+										textBox2.Clear();
+										textBox3.Clear();
+										textBox4.Clear();
+										textBox1.Clear();
+										textBox5.Clear();
+										this.Hide();
+										AddStudent f4 = new AddStudent();
+										f4.ShowDialog();
+										this.Close();
+										Flag = 0;
+									}
+									else
+									{
+										MessageBox.Show("Reg no Exists");
+									}
+								}
+								else
+								{
+									MessageBox.Show("Email Exists");
+								}
+							}
 						}
-
 					}
 					else
 					{
