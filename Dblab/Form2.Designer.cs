@@ -59,24 +59,28 @@
 			// 
 			// Back
 			// 
+			this.Back.BackColor = System.Drawing.Color.Yellow;
 			this.Back.Dock = System.Windows.Forms.DockStyle.Left;
+			this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Back.Location = new System.Drawing.Point(3, 3);
 			this.Back.Name = "Back";
-			this.Back.Size = new System.Drawing.Size(63, 34);
+			this.Back.Size = new System.Drawing.Size(73, 34);
 			this.Back.TabIndex = 21;
-			this.Back.Text = "<- Back";
-			this.Back.UseVisualStyleBackColor = true;
+			this.Back.Text = "Back";
+			this.Back.UseVisualStyleBackColor = false;
 			this.Back.Click += new System.EventHandler(this.Back_Click);
 			// 
 			// addStudt
 			// 
+			this.addStudt.BackColor = System.Drawing.Color.Yellow;
 			this.addStudt.Dock = System.Windows.Forms.DockStyle.Right;
+			this.addStudt.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.addStudt.Location = new System.Drawing.Point(710, 3);
 			this.addStudt.Name = "addStudt";
 			this.addStudt.Size = new System.Drawing.Size(75, 34);
 			this.addStudt.TabIndex = 22;
 			this.addStudt.Text = "+";
-			this.addStudt.UseVisualStyleBackColor = true;
+			this.addStudt.UseVisualStyleBackColor = false;
 			this.addStudt.Click += new System.EventHandler(this.addStudt_Click);
 			// 
 			// tableLayoutPanel1
@@ -98,10 +102,11 @@
 			// 
 			// tableLayoutPanel2
 			// 
+			this.tableLayoutPanel2.BackColor = System.Drawing.SystemColors.ActiveBorder;
 			this.tableLayoutPanel2.ColumnCount = 3;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.517767F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.83756F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.771574F));
 			this.tableLayoutPanel2.Controls.Add(this.label1, 1, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
 			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
@@ -114,11 +119,12 @@
 			// label1
 			// 
 			this.label1.AutoSize = true;
+			this.label1.BackColor = System.Drawing.Color.Yellow;
 			this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(265, 0);
+			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.Location = new System.Drawing.Point(77, 0);
 			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(256, 59);
+			this.label1.Size = new System.Drawing.Size(630, 59);
 			this.label1.TabIndex = 0;
 			this.label1.Text = "Student Table";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

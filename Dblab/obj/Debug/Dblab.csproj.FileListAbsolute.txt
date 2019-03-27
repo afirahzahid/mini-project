@@ -24,7 +24,6 @@ C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.csproj.GenerateResource.cache
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.csproj.CoreCompileInputs.cache
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.exe
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.pdb
-C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.csprojAssemblyReference.cache
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.AddAdvisor.resources
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.ProjectAdvisor.resources
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.FromEvaluation.resources
@@ -32,3 +31,4 @@ C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.FromGroupStudent.resources
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.ManageEvaluation.resources
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.ManageGroupProject.resources
 C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.FromProjectStudent.resources
+C:\Users\CC\Desktop\DBlab\Dblab\obj\Debug\Dblab.csprojAssemblyReference.cache
