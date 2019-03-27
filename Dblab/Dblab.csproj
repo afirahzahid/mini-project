@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddAdvisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddAdvisor.Designer.cs">
+      <DependentUpon>AddAdvisor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddGroupStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddGroupStudent.Designer.cs">
+      <DependentUpon>AddGroupStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,8 +100,56 @@
     <Compile Include="Form7.Designer.cs">
       <DependentUpon>Form7.cs</DependentUpon>
     </Compile>
+    <Compile Include="FromEvaluation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromEvaluation.Designer.cs">
+      <DependentUpon>FromEvaluation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromGroupStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromGroupStudent.Designer.cs">
+      <DependentUpon>FromGroupStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromProjectStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromProjectStudent.Designer.cs">
+      <DependentUpon>FromProjectStudent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FromStudents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FromStudents.Designer.cs">
+      <DependentUpon>FromStudents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageEvaluation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageEvaluation.Designer.cs">
+      <DependentUpon>ManageEvaluation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageGroupProject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageGroupProject.Designer.cs">
+      <DependentUpon>ManageGroupProject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectAdvisor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectAdvisor.Designer.cs">
+      <DependentUpon>ProjectAdvisor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AddAdvisor.resx">
+      <DependentUpon>AddAdvisor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddGroupStudent.resx">
+      <DependentUpon>AddGroupStudent.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,6 +170,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form7.resx">
       <DependentUpon>Form7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromEvaluation.resx">
+      <DependentUpon>FromEvaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromGroupStudent.resx">
+      <DependentUpon>FromGroupStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromProjectStudent.resx">
+      <DependentUpon>FromProjectStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FromStudents.resx">
+      <DependentUpon>FromStudents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageEvaluation.resx">
+      <DependentUpon>ManageEvaluation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageGroupProject.resx">
+      <DependentUpon>ManageGroupProject.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectAdvisor.resx">
+      <DependentUpon>ProjectAdvisor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -33,9 +33,13 @@
 			this.Manage_Projects = new System.Windows.Forms.Button();
 			this.Manage_Evaluation = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.Manage_Group = new System.Windows.Forms.Button();
+			this.Manage_Group_Advisor = new System.Windows.Forms.Button();
+			this.Manage_Group_Evaluation = new System.Windows.Forms.Button();
 			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+			this.Manage_Group_Project = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.tableLayoutPanel3.SuspendLayout();
@@ -96,7 +100,10 @@
 			this.tableLayoutPanel1.Controls.Add(this.Manage_Projects, 1, 2);
 			this.tableLayoutPanel1.Controls.Add(this.Manage_Advisors, 1, 1);
 			this.tableLayoutPanel1.Controls.Add(this.Manage_Students, 1, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.tableLayoutPanel1.Controls.Add(this.Manage_Group, 1, 4);
+			this.tableLayoutPanel1.Controls.Add(this.Manage_Group_Advisor, 1, 5);
+			this.tableLayoutPanel1.Controls.Add(this.Manage_Group_Evaluation, 2, 1);
+			this.tableLayoutPanel1.Controls.Add(this.Manage_Group_Project, 2, 2);
 			this.tableLayoutPanel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 145);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -111,6 +118,37 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(794, 302);
 			this.tableLayoutPanel1.TabIndex = 4;
+			this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+			// 
+			// Manage_Group
+			// 
+			this.Manage_Group.Location = new System.Drawing.Point(267, 203);
+			this.Manage_Group.Name = "Manage_Group";
+			this.Manage_Group.Size = new System.Drawing.Size(258, 44);
+			this.Manage_Group.TabIndex = 4;
+			this.Manage_Group.Text = "Manage Group";
+			this.Manage_Group.UseVisualStyleBackColor = true;
+			this.Manage_Group.Click += new System.EventHandler(this.Manage_Group_Click);
+			// 
+			// Manage_Group_Advisor
+			// 
+			this.Manage_Group_Advisor.Location = new System.Drawing.Point(267, 253);
+			this.Manage_Group_Advisor.Name = "Manage_Group_Advisor";
+			this.Manage_Group_Advisor.Size = new System.Drawing.Size(258, 46);
+			this.Manage_Group_Advisor.TabIndex = 5;
+			this.Manage_Group_Advisor.Text = "Manage Group Advisor";
+			this.Manage_Group_Advisor.UseVisualStyleBackColor = true;
+			this.Manage_Group_Advisor.Click += new System.EventHandler(this.Manage_Group_Advisor_Click);
+			// 
+			// Manage_Group_Evaluation
+			// 
+			this.Manage_Group_Evaluation.Location = new System.Drawing.Point(531, 53);
+			this.Manage_Group_Evaluation.Name = "Manage_Group_Evaluation";
+			this.Manage_Group_Evaluation.Size = new System.Drawing.Size(260, 44);
+			this.Manage_Group_Evaluation.TabIndex = 6;
+			this.Manage_Group_Evaluation.Text = "Manage Group Evaluation";
+			this.Manage_Group_Evaluation.UseVisualStyleBackColor = true;
+			this.Manage_Group_Evaluation.Click += new System.EventHandler(this.Manage_Group_Evaluation_Click);
 			// 
 			// tableLayoutPanel2
 			// 
@@ -157,6 +195,16 @@
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(800, 450);
 			this.tableLayoutPanel3.TabIndex = 6;
 			// 
+			// Manage_Group_Project
+			// 
+			this.Manage_Group_Project.Location = new System.Drawing.Point(531, 103);
+			this.Manage_Group_Project.Name = "Manage_Group_Project";
+			this.Manage_Group_Project.Size = new System.Drawing.Size(260, 44);
+			this.Manage_Group_Project.TabIndex = 7;
+			this.Manage_Group_Project.Text = "Manage Group Project";
+			this.Manage_Group_Project.UseVisualStyleBackColor = true;
+			this.Manage_Group_Project.Click += new System.EventHandler(this.Manage_Group_Project_Click);
+			// 
 			// Main_Form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,5 +232,9 @@
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+		private System.Windows.Forms.Button Manage_Group;
+		private System.Windows.Forms.Button Manage_Group_Advisor;
+		private System.Windows.Forms.Button Manage_Group_Evaluation;
+		private System.Windows.Forms.Button Manage_Group_Project;
 	}
 }

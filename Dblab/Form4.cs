@@ -66,5 +66,42 @@ namespace Dblab
 		{
 
 		}
+
+		private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+		private void Manage_Group_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			AddGroupStudent f1 = new AddGroupStudent();
+			f1.ShowDialog();
+			this.Close();
+		}
+
+		private void Manage_Group_Advisor_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			ProjectAdvisor f1 = new ProjectAdvisor();
+			f1.ShowDialog();
+			this.Close();
+		}
+
+		private void Manage_Group_Evaluation_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			ManageEvaluation f1 = new ManageEvaluation();
+			f1.ShowDialog();
+			this.Close();
+		}
+
+		private void Manage_Group_Project_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			ManageGroupProject f1 = new ManageGroupProject();
+			f1.ShowDialog();
+			this.Close();
+		}
 	}
 }
