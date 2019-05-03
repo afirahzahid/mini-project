@@ -18,7 +18,7 @@ namespace Dblab
 		public int Flagg2 = 0;
 		SqlCommand cmd1;
 		SqlCommand cmd2;
-		SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		int ID = 0;
 		int ID1 = 0;
 		public ProjectAdvisor()
@@ -271,12 +271,22 @@ namespace Dblab
 				}
 				if (URowIndex != 0)
 				{
-					var askfirst1 = MessageBox.Show("Are you sure you want to Update this?", "Update", MessageBoxButtons.YesNo);
+					var askfirst1 = MessageBox.Show("Are you sure you want to chnage project of this advisor?", "Update", MessageBoxButtons.YesNo);
 					if (askfirst1 == DialogResult.Yes)
 					{
 						Flagg2 = ID;
 
-						comboBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        SqlDataAdapter sd = new SqlDataAdapter("Select * From project", con);
+                        DataTable　ds = new DataTable();
+                        sd.Fill(ds);
+                        foreach(DataRow row in ds.Rows)
+                        {
+                            if(row["Id"].ToString() == dataGridView1.Rows[e.RowIndex].Cells["ProjectId"].FormattedValue.ToString())
+                            {
+                                comboBox1.Text = row["Title"].ToString();
+                            }
+                        }
+						
 						textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
 						if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[3].Value) == 11)
 						{
@@ -345,5 +355,10 @@ namespace Dblab
 				}
 			}
 		}
-	}
+
+        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }

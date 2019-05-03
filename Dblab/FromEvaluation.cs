@@ -18,7 +18,7 @@ namespace Dblab
 	
 		SqlCommand cmd1;
 		SqlCommand cmd2;
-		SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-M9PBVHQ;Initial Catalog=ProjectA;Integrated Security=True");
 		int ID = 0;
 		int ID1 = 0;
 		public FromEvaluation()

@@ -38,17 +38,20 @@
 			this.Manage_Group_Evaluation = new System.Windows.Forms.Button();
 			this.Manage_Group_Project = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.panel3 = new System.Windows.Forms.Panel();
-			this.button1 = new System.Windows.Forms.Button();
 			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+			this.panel2 = new System.Windows.Forms.Panel();
+			this.button1 = new System.Windows.Forms.Button();
+			this.panel3 = new System.Windows.Forms.Panel();
 			this.panel4 = new System.Windows.Forms.Panel();
 			this.label1 = new System.Windows.Forms.Label();
 			this.button2 = new System.Windows.Forms.Button();
+			this.Generate_Reports = new System.Windows.Forms.Button();
+			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
 			this.panel1.SuspendLayout();
-			this.panel2.SuspendLayout();
 			this.tableLayoutPanel1.SuspendLayout();
+			this.panel2.SuspendLayout();
 			this.panel4.SuspendLayout();
+			this.tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// Manage_Students
@@ -174,34 +177,6 @@
 			this.panel1.Size = new System.Drawing.Size(293, 692);
 			this.panel1.TabIndex = 8;
 			// 
-			// panel2
-			// 
-			this.panel2.BackColor = System.Drawing.Color.Yellow;
-			this.panel2.Controls.Add(this.button1);
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-			this.panel2.Location = new System.Drawing.Point(0, 0);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(293, 136);
-			this.panel2.TabIndex = 9;
-			// 
-			// panel3
-			// 
-			this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.panel3.Location = new System.Drawing.Point(293, 614);
-			this.panel3.Name = "panel3";
-			this.panel3.Size = new System.Drawing.Size(907, 78);
-			this.panel3.TabIndex = 9;
-			// 
-			// button1
-			// 
-			this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-			this.button1.Location = new System.Drawing.Point(0, 0);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(293, 136);
-			this.button1.TabIndex = 10;
-			this.button1.UseVisualStyleBackColor = true;
-			// 
 			// tableLayoutPanel1
 			// 
 			this.tableLayoutPanel1.ColumnCount = 1;
@@ -230,6 +205,34 @@
 			this.tableLayoutPanel1.Size = new System.Drawing.Size(293, 556);
 			this.tableLayoutPanel1.TabIndex = 10;
 			// 
+			// panel2
+			// 
+			this.panel2.BackColor = System.Drawing.Color.Yellow;
+			this.panel2.Controls.Add(this.button1);
+			this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+			this.panel2.Location = new System.Drawing.Point(0, 0);
+			this.panel2.Name = "panel2";
+			this.panel2.Size = new System.Drawing.Size(293, 136);
+			this.panel2.TabIndex = 9;
+			// 
+			// button1
+			// 
+			this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+			this.button1.Location = new System.Drawing.Point(0, 0);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(293, 136);
+			this.button1.TabIndex = 10;
+			this.button1.UseVisualStyleBackColor = true;
+			// 
+			// panel3
+			// 
+			this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.panel3.Location = new System.Drawing.Point(293, 614);
+			this.panel3.Name = "panel3";
+			this.panel3.Size = new System.Drawing.Size(907, 78);
+			this.panel3.TabIndex = 9;
+			// 
 			// panel4
 			// 
 			this.panel4.Controls.Add(this.label1);
@@ -238,6 +241,7 @@
 			this.panel4.Name = "panel4";
 			this.panel4.Size = new System.Drawing.Size(907, 133);
 			this.panel4.TabIndex = 10;
+			this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
 			// 
 			// label1
 			// 
@@ -252,6 +256,7 @@
 			this.label1.TabIndex = 0;
 			this.label1.Text = "FYP Management System";
 			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.label1.Click += new System.EventHandler(this.label1_Click_1);
 			// 
 			// button2
 			// 
@@ -263,12 +268,41 @@
 			this.button2.TabIndex = 11;
 			this.button2.UseVisualStyleBackColor = true;
 			// 
+			// Generate_Reports
+			// 
+			this.Generate_Reports.BackColor = System.Drawing.Color.Firebrick;
+			this.Generate_Reports.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.Generate_Reports.ForeColor = System.Drawing.SystemColors.Control;
+			this.Generate_Reports.Location = new System.Drawing.Point(266, 3);
+			this.Generate_Reports.Name = "Generate_Reports";
+			this.Generate_Reports.Size = new System.Drawing.Size(344, 44);
+			this.Generate_Reports.TabIndex = 12;
+			this.Generate_Reports.Text = "Generate Reports";
+			this.Generate_Reports.UseVisualStyleBackColor = false;
+			this.Generate_Reports.Click += new System.EventHandler(this.Generate_Reports_Click);
+			// 
+			// tableLayoutPanel2
+			// 
+			this.tableLayoutPanel2.ColumnCount = 3;
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 29.10695F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.69901F));
+			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 32.3043F));
+			this.tableLayoutPanel2.Controls.Add(this.Generate_Reports, 1, 0);
+			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(293, 564);
+			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+			this.tableLayoutPanel2.RowCount = 1;
+			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(907, 50);
+			this.tableLayoutPanel2.TabIndex = 13;
+			// 
 			// Main_Form
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.AppWorkspace;
 			this.ClientSize = new System.Drawing.Size(1200, 692);
+			this.Controls.Add(this.tableLayoutPanel2);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.panel4);
 			this.Controls.Add(this.panel3);
@@ -279,10 +313,11 @@
 			this.Text = "Main Form";
 			this.Load += new System.EventHandler(this.Main_Form_Load);
 			this.panel1.ResumeLayout(false);
-			this.panel2.ResumeLayout(false);
 			this.tableLayoutPanel1.ResumeLayout(false);
+			this.panel2.ResumeLayout(false);
 			this.panel4.ResumeLayout(false);
 			this.panel4.PerformLayout();
+			this.tableLayoutPanel2.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -305,5 +340,7 @@
 		private System.Windows.Forms.Panel panel4;
 		private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button Generate_Reports;
+		private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
 	}
 }

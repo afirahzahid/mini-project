@@ -16,7 +16,7 @@ namespace Dblab
 	{
 		public int Flag3 = 0;
 		SqlCommand cmd;
-		SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		SqlDataAdapter adp;
 		int ID = 0;
 		public Evaluation()
@@ -104,6 +104,13 @@ namespace Dblab
 						f1.ShowDialog();
 						this.Close();
 					}
+                    else
+                    {
+                        this.Hide();
+                        Evaluation f1 = new Evaluation();
+                        f1.ShowDialog();
+                        this.Close();
+                    }
 				}
 			}
 			else if (URowIndex == 5)
@@ -128,7 +135,7 @@ namespace Dblab
 					{
 						con.Close();
 						this.Hide();
-						Project f2 = new Project();
+						Evaluation f2 = new Evaluation();
 						f2.ShowDialog();
 
 					}
@@ -280,6 +287,16 @@ namespace Dblab
 		}
 
 		private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+		{
+
+		}
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+		private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
 		{
 
 		}

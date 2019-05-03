@@ -17,7 +17,7 @@ namespace Dblab
 		public int Flag = 0;
 		SqlCommand cmd1;
 		SqlCommand cmd2;
-		SqlConnection con1 = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con1 = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		SqlDataAdapter adp;
 		int ID = 0;
 		int ID1 = 0;
@@ -111,17 +111,17 @@ namespace Dblab
 						s.textBox3.Text = dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString();
 						s.textBox4.Text = dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString();
 						s.textBox5.Text = dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString();
-						s.dateTimePicker1.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+						s.dateTimePicker1.Text = (dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString());
 						if (dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString() == "")
 						{
 							s.comboBox1.Text = "";
 						}
 
-						else if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value) == 1)
+						else if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value) == 1)
 						{
 							s.comboBox1.Text = "Male";
 						}
-						else if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[8].Value) == 2)
+						else if (Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[7].Value) == 2)
 						{
 							s.comboBox1.Text = "Female";
 						}
@@ -283,5 +283,10 @@ namespace Dblab
 		{
 
 		}
-	}
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }

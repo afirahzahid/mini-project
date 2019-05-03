@@ -13,7 +13,7 @@ namespace Dblab
 {
 	public partial class Main_Form : Form
 	{
-		SqlConnection con1 = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con1 = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		public Main_Form()
 		{
 			InitializeComponent();
@@ -100,6 +100,24 @@ namespace Dblab
 		{
 			this.Hide();
 			ManageGroupProject f1 = new ManageGroupProject();
+			f1.ShowDialog();
+			this.Close();
+		}
+
+        private void panel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+		private void Generate_Reports_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			Reports f1 = new Reports();
 			f1.ShowDialog();
 			this.Close();
 		}

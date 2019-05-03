@@ -15,7 +15,7 @@ namespace Dblab
 	public partial class FromStudents : Form
 	{
 		public int Flags = 0;
-		SqlConnection con1 = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con1 = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		SqlDataAdapter adp;
 		int ID = 0;
 		int ID1 = 0;
@@ -112,5 +112,10 @@ namespace Dblab
 			f4.ShowDialog();
 			this.Close();
 		}
-	}
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }

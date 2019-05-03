@@ -18,7 +18,7 @@ namespace Dblab
 		public int Flagg2 = 0;
 		SqlCommand cmd1;
 		SqlCommand cmd2;
-		SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		int ID = 0;
 		int ID1 = 0;
 		public ManageEvaluation()
@@ -125,7 +125,7 @@ namespace Dblab
 				}
 				if (URowIndex != 0)
 				{
-					var askfirst1 = MessageBox.Show("Are you sure you want to Update this?", "Update", MessageBoxButtons.YesNo);
+					var askfirst1 = MessageBox.Show("Are you sure you want to change marks or Evaluation Id of this project?", "Update", MessageBoxButtons.YesNo);
 					if (askfirst1 == DialogResult.Yes)
 					{
 						Flagg2 = ID;
@@ -350,5 +350,20 @@ namespace Dblab
 		{
 
 		}
-	}
+
+        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }

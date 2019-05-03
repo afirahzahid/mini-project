@@ -18,7 +18,7 @@ namespace Dblab
 		public int Flagg2 = 0;
 		SqlCommand cmd1;
 		SqlCommand cmd2;
-		SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		int ID = 0;
 		int ID1 = 0;
 		public ManageGroupProject()
@@ -54,7 +54,7 @@ namespace Dblab
 				}
 				if (URowIndex != 0)
 				{
-					var askfirst1 = MessageBox.Show("Are you sure you want to Update this?", "Update", MessageBoxButtons.YesNo);
+					var askfirst1 = MessageBox.Show("Are you sure you want to change the project of this group?", "Update", MessageBoxButtons.YesNo);
 					if (askfirst1 == DialogResult.Yes)
 					{
 						Flagg2 = ID;
@@ -212,25 +212,6 @@ namespace Dblab
 					{
 						MessageBox.Show("This Project Id is already assigned to this group");
 					}
-					if (Flagg2 > 0)
-					{
-						con.Open();
-						DateTime time = DateTime.Now;
-						cmd2 = new SqlCommand("UPDATE GroupEvaluation SET GroupId = @GroupId, EvaluationId = @EvaluationId, ObtainedMarks = @ObtainedMarks, EvaluationDate = @EvaluationDate WHERE GroupId = @d1 AND EvaluationId = @d2", con);
-						cmd2.Parameters.AddWithValue("@d1", Flagg2);
-						cmd2.Parameters.AddWithValue("@d2", ID1);
-						cmd2.Parameters.AddWithValue("@GroupId", Convert.ToInt32(textBox1.Text));
-						cmd2.Parameters.AddWithValue("@EvaluationId", Convert.ToInt32(comboBox1.Text));
-						
-						cmd2.Parameters.AddWithValue("@EvaluationDate", time);
-						cmd2.ExecuteNonQuery();
-						MessageBox.Show("Updated successfully Successfully");
-						con.Close();
-						this.Hide();
-						ManageEvaluation f4 = new ManageEvaluation();
-						f4.ShowDialog();
-						this.Close();
-					}
 				}
 				else
 				{
@@ -308,5 +289,10 @@ namespace Dblab
 			f4.ShowDialog();
 			this.Close();
 		}
-	}
+
+        private void tableLayoutPanel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }

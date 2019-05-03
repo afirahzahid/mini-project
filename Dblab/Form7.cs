@@ -22,7 +22,7 @@ namespace Dblab
 		public int Flag1 = 0;
 		SqlCommand cmd1;
 		SqlCommand cmd2;
-		SqlConnection con1 = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con1 = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		SqlDataAdapter adp;
 		int ID = 0;
 		int ID1 = 0;

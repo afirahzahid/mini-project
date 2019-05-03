@@ -17,7 +17,7 @@ namespace Dblab
 		public int Flag1 = 0;
 		SqlCommand cmd1;
 		SqlCommand cmd2;
-		SqlConnection con1 = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con1 = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		SqlDataAdapter adp;
 		int ID = 0;
 		int ID1 = 0;
@@ -136,7 +136,7 @@ namespace Dblab
 										string gId = string.Format("SELECT Lookup.Id From Lookup WHERE Value = '{0}'", comboBox1.Text);
 										SqlCommand cmd3 = new SqlCommand(gId, con1);
 										int g = (Int32)cmd3.ExecuteScalar();
-										cmd1 = new SqlCommand("insert into [Person] (FirstName, LastName, Contact, Email, DateOfBirth, gender) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + dateTimePicker1.Text + "','" + g + "')", con1);
+										cmd1 = new SqlCommand("insert into [Person] (FirstName, LastName, Contact, Email, DateOfBirth, gender) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + dateTimePicker1.Value + "','" + g + "')", con1);
 										string designation_Id = string.Format("SELECT Lookup.Id From Lookup WHERE Value = '{0}'", comboBox2.Text);
 										SqlCommand cmd = new SqlCommand(designation_Id, con1);
 										int d_Id = (Int32)cmd.ExecuteScalar();
@@ -180,7 +180,7 @@ namespace Dblab
 										cmd1.Parameters.AddWithValue("@LastName", textBox3.Text);
 										cmd1.Parameters.AddWithValue("@Contact", textBox4.Text);
 										cmd1.Parameters.AddWithValue("@Email", textBox5.Text);
-										cmd1.Parameters.AddWithValue("@DateOfBirth", dateTimePicker1.Text);
+										cmd1.Parameters.AddWithValue("@DateOfBirth", dateTimePicker1.Value);
 										string gId = string.Format("SELECT Lookup.Id From Lookup WHERE Value = '{0}'", comboBox1.Text);
 										SqlCommand cmd3 = new SqlCommand(gId, con1);
 										int g = (Int32)cmd3.ExecuteScalar();
@@ -222,7 +222,7 @@ namespace Dblab
 									if (email == false)
 									{
 										con1.Open();
-										cmd1 = new SqlCommand("insert into [Person] (FirstName, LastName, Contact, Email, DateOfBirth) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + dateTimePicker1.Text + "')", con1);
+										cmd1 = new SqlCommand("insert into [Person] (FirstName, LastName, Contact, Email, DateOfBirth) values ('" + textBox2.Text + "','" + textBox3.Text + "','" + textBox4.Text + "','" + textBox5.Text + "','" + dateTimePicker1.Value + "')", con1);
 										string designation_Id = string.Format("SELECT Lookup.Id From Lookup WHERE Value = '{0}'", comboBox2.Text);
 										SqlCommand cmd = new SqlCommand(designation_Id, con1);
 										int d_Id = (Int32)cmd.ExecuteScalar();
@@ -272,7 +272,7 @@ namespace Dblab
 										cmd1.Parameters.AddWithValue("@LastName", textBox3.Text);
 										cmd1.Parameters.AddWithValue("@Contact", textBox4.Text);
 										cmd1.Parameters.AddWithValue("@Email", textBox5.Text);
-										cmd1.Parameters.AddWithValue("@DateOfBirth", dateTimePicker1.Text);
+										cmd1.Parameters.AddWithValue("@DateOfBirth", dateTimePicker1.Value);
 
 										if (textBox1.Text != "")
 										{

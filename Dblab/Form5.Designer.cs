@@ -59,9 +59,9 @@
 			this.Student.BackColor = System.Drawing.Color.Yellow;
 			this.Student.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Student.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Student.Location = new System.Drawing.Point(70, 3);
+			this.Student.Location = new System.Drawing.Point(52, 3);
 			this.Student.Name = "Student";
-			this.Student.Size = new System.Drawing.Size(663, 63);
+			this.Student.Size = new System.Drawing.Size(696, 59);
 			this.Student.TabIndex = 80;
 			this.Student.Text = "Add Student";
 			this.Student.UseVisualStyleBackColor = false;
@@ -88,7 +88,7 @@
 			this.tableLayoutPanel1.Controls.Add(this.textBox3, 1, 2);
 			this.tableLayoutPanel1.Controls.Add(this.dateTimePicker1, 1, 6);
 			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(70, 72);
+			this.tableLayoutPanel1.Location = new System.Drawing.Point(52, 68);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
 			this.tableLayoutPanel1.RowCount = 7;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.35563F));
@@ -98,7 +98,7 @@
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.27406F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.27406F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 14.27406F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(663, 299);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(696, 303);
 			this.tableLayoutPanel1.TabIndex = 78;
 			// 
 			// RegNo
@@ -108,7 +108,7 @@
 			this.RegNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RegNo.Location = new System.Drawing.Point(3, 0);
 			this.RegNo.Name = "RegNo";
-			this.RegNo.Size = new System.Drawing.Size(322, 42);
+			this.RegNo.Size = new System.Drawing.Size(338, 43);
 			this.RegNo.TabIndex = 28;
 			this.RegNo.Text = "RegNo";
 			this.RegNo.Click += new System.EventHandler(this.RegNo_Click);
@@ -117,9 +117,9 @@
 			// 
 			this.textBox1.BackColor = System.Drawing.SystemColors.Window;
 			this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox1.Location = new System.Drawing.Point(331, 3);
+			this.textBox1.Location = new System.Drawing.Point(347, 3);
 			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(329, 20);
+			this.textBox1.Size = new System.Drawing.Size(346, 20);
 			this.textBox1.TabIndex = 22;
 			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
 			// 
@@ -128,9 +128,9 @@
 			this.FirstName.AutoSize = true;
 			this.FirstName.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.FirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.FirstName.Location = new System.Drawing.Point(3, 42);
+			this.FirstName.Location = new System.Drawing.Point(3, 43);
 			this.FirstName.Name = "FirstName";
-			this.FirstName.Size = new System.Drawing.Size(322, 42);
+			this.FirstName.Size = new System.Drawing.Size(338, 43);
 			this.FirstName.TabIndex = 29;
 			this.FirstName.Text = "First Name";
 			this.FirstName.Click += new System.EventHandler(this.FirstName_Click);
@@ -140,9 +140,9 @@
 			this.DOB.AutoSize = true;
 			this.DOB.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.DOB.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.DOB.Location = new System.Drawing.Point(3, 252);
+			this.DOB.Location = new System.Drawing.Point(3, 258);
 			this.DOB.Name = "DOB";
-			this.DOB.Size = new System.Drawing.Size(322, 47);
+			this.DOB.Size = new System.Drawing.Size(338, 45);
 			this.DOB.TabIndex = 33;
 			this.DOB.Text = "DOB";
 			this.DOB.Click += new System.EventHandler(this.DOB_Click);
@@ -155,9 +155,9 @@
 			this.comboBox1.Items.AddRange(new object[] {
             "Male",
             "Female"});
-			this.comboBox1.Location = new System.Drawing.Point(331, 129);
+			this.comboBox1.Location = new System.Drawing.Point(347, 132);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(329, 21);
+			this.comboBox1.Size = new System.Drawing.Size(346, 21);
 			this.comboBox1.TabIndex = 35;
 			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
 			// 
@@ -166,9 +166,9 @@
 			this.Email.AutoSize = true;
 			this.Email.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Email.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Email.Location = new System.Drawing.Point(3, 210);
+			this.Email.Location = new System.Drawing.Point(3, 215);
 			this.Email.Name = "Email";
-			this.Email.Size = new System.Drawing.Size(322, 42);
+			this.Email.Size = new System.Drawing.Size(338, 43);
 			this.Email.TabIndex = 32;
 			this.Email.Text = "Email";
 			this.Email.Click += new System.EventHandler(this.Email_Click);
@@ -176,18 +176,18 @@
 			// textBox5
 			// 
 			this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox5.Location = new System.Drawing.Point(331, 213);
+			this.textBox5.Location = new System.Drawing.Point(347, 218);
 			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(329, 20);
+			this.textBox5.Size = new System.Drawing.Size(346, 20);
 			this.textBox5.TabIndex = 26;
 			this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
 			// 
 			// textBox2
 			// 
 			this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox2.Location = new System.Drawing.Point(331, 45);
+			this.textBox2.Location = new System.Drawing.Point(347, 46);
 			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(329, 20);
+			this.textBox2.Size = new System.Drawing.Size(346, 20);
 			this.textBox2.TabIndex = 23;
 			this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
 			// 
@@ -196,9 +196,9 @@
 			this.Contact.AutoSize = true;
 			this.Contact.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Contact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Contact.Location = new System.Drawing.Point(3, 168);
+			this.Contact.Location = new System.Drawing.Point(3, 172);
 			this.Contact.Name = "Contact";
-			this.Contact.Size = new System.Drawing.Size(322, 42);
+			this.Contact.Size = new System.Drawing.Size(338, 43);
 			this.Contact.TabIndex = 31;
 			this.Contact.Text = "Contact";
 			this.Contact.Click += new System.EventHandler(this.Contact_Click);
@@ -208,9 +208,9 @@
 			this.Gender.AutoSize = true;
 			this.Gender.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Gender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Gender.Location = new System.Drawing.Point(3, 126);
+			this.Gender.Location = new System.Drawing.Point(3, 129);
 			this.Gender.Name = "Gender";
-			this.Gender.Size = new System.Drawing.Size(322, 42);
+			this.Gender.Size = new System.Drawing.Size(338, 43);
 			this.Gender.TabIndex = 34;
 			this.Gender.Text = "Gender";
 			this.Gender.Click += new System.EventHandler(this.Gender_Click);
@@ -218,9 +218,9 @@
 			// textBox4
 			// 
 			this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox4.Location = new System.Drawing.Point(331, 171);
+			this.textBox4.Location = new System.Drawing.Point(347, 175);
 			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(329, 20);
+			this.textBox4.Size = new System.Drawing.Size(346, 20);
 			this.textBox4.TabIndex = 25;
 			this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
 			// 
@@ -229,9 +229,9 @@
 			this.LastName.AutoSize = true;
 			this.LastName.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.LastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.LastName.Location = new System.Drawing.Point(3, 84);
+			this.LastName.Location = new System.Drawing.Point(3, 86);
 			this.LastName.Name = "LastName";
-			this.LastName.Size = new System.Drawing.Size(322, 42);
+			this.LastName.Size = new System.Drawing.Size(338, 43);
 			this.LastName.TabIndex = 30;
 			this.LastName.Text = "Last Name";
 			this.LastName.Click += new System.EventHandler(this.LastName_Click);
@@ -239,19 +239,19 @@
 			// textBox3
 			// 
 			this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.textBox3.Location = new System.Drawing.Point(331, 87);
+			this.textBox3.Location = new System.Drawing.Point(347, 89);
 			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(329, 20);
+			this.textBox3.Size = new System.Drawing.Size(346, 20);
 			this.textBox3.TabIndex = 24;
 			this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
 			// 
 			// dateTimePicker1
 			// 
 			this.dateTimePicker1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.dateTimePicker1.Location = new System.Drawing.Point(331, 255);
-			this.dateTimePicker1.MaxDate = new System.DateTime(2004, 12, 31, 0, 0, 0, 0);
+			this.dateTimePicker1.Location = new System.Drawing.Point(347, 261);
+			this.dateTimePicker1.MaxDate = new System.DateTime(2019, 12, 31, 0, 0, 0, 0);
 			this.dateTimePicker1.Name = "dateTimePicker1";
-			this.dateTimePicker1.Size = new System.Drawing.Size(329, 20);
+			this.dateTimePicker1.Size = new System.Drawing.Size(346, 20);
 			this.dateTimePicker1.TabIndex = 36;
 			this.dateTimePicker1.Value = new System.DateTime(2004, 12, 31, 0, 0, 0, 0);
 			this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
@@ -267,11 +267,11 @@
 			this.tableLayoutPanel2.Controls.Add(this.Save, 1, 0);
 			this.tableLayoutPanel2.Controls.Add(this.Back, 0, 0);
 			this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(70, 377);
+			this.tableLayoutPanel2.Location = new System.Drawing.Point(52, 377);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
 			this.tableLayoutPanel2.RowCount = 1;
 			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(663, 59);
+			this.tableLayoutPanel2.Size = new System.Drawing.Size(696, 59);
 			this.tableLayoutPanel2.TabIndex = 79;
 			// 
 			// ShowData
@@ -279,9 +279,9 @@
 			this.ShowData.BackColor = System.Drawing.Color.Yellow;
 			this.ShowData.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.ShowData.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.ShowData.Location = new System.Drawing.Point(445, 3);
+			this.ShowData.Location = new System.Drawing.Point(467, 3);
 			this.ShowData.Name = "ShowData";
-			this.ShowData.Size = new System.Drawing.Size(215, 53);
+			this.ShowData.Size = new System.Drawing.Size(226, 53);
 			this.ShowData.TabIndex = 36;
 			this.ShowData.Text = "ShowData";
 			this.ShowData.UseVisualStyleBackColor = false;
@@ -292,9 +292,9 @@
 			this.Save.BackColor = System.Drawing.Color.Yellow;
 			this.Save.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Save.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Save.Location = new System.Drawing.Point(224, 3);
+			this.Save.Location = new System.Drawing.Point(235, 3);
 			this.Save.Name = "Save";
-			this.Save.Size = new System.Drawing.Size(215, 53);
+			this.Save.Size = new System.Drawing.Size(226, 53);
 			this.Save.TabIndex = 20;
 			this.Save.Text = "Save";
 			this.Save.UseVisualStyleBackColor = false;
@@ -307,7 +307,7 @@
 			this.Back.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Back.Location = new System.Drawing.Point(3, 3);
 			this.Back.Name = "Back";
-			this.Back.Size = new System.Drawing.Size(215, 53);
+			this.Back.Size = new System.Drawing.Size(226, 53);
 			this.Back.TabIndex = 37;
 			this.Back.Text = "Back";
 			this.Back.UseVisualStyleBackColor = false;
@@ -315,11 +315,11 @@
 			// 
 			// tableLayoutPanel3
 			// 
-			this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.ButtonFace;
+			this.tableLayoutPanel3.BackColor = System.Drawing.SystemColors.GrayText;
 			this.tableLayoutPanel3.ColumnCount = 3;
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.116409F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90.88359F));
-			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 63F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 6.524634F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 93.47536F));
+			this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 48F));
 			this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel2, 1, 2);
 			this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel1, 1, 1);
 			this.tableLayoutPanel3.Controls.Add(this.Student, 1, 0);
@@ -327,8 +327,8 @@
 			this.tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
 			this.tableLayoutPanel3.Name = "tableLayoutPanel3";
 			this.tableLayoutPanel3.RowCount = 4;
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.48485F));
-			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.51515F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.37968F));
+			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 82.62032F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
 			this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 10F));
 			this.tableLayoutPanel3.Size = new System.Drawing.Size(800, 450);
@@ -341,7 +341,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
 			this.Controls.Add(this.tableLayoutPanel3);
-			this.MinimumSize = new System.Drawing.Size(816, 489);
+			this.MinimumSize = new System.Drawing.Size(816, 487);
 			this.Name = "AddStudent";
 			this.Text = "Add Student";
 			this.Load += new System.EventHandler(this.AddStudent_Load);

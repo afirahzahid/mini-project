@@ -18,7 +18,7 @@ namespace Dblab
 		public int Flagg2 = 0;
 		SqlCommand cmd1;
 		SqlCommand cmd2;
-		SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-KSK1C2C\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
+		SqlConnection con = new SqlConnection(@"Data Source=HAIER-PC\SQLEXPRESS;Initial Catalog=ProjectA;Integrated Security=True");
 		int ID = 0;
 		int ID1 = 0;
 
@@ -287,5 +287,15 @@ namespace Dblab
 			f4.ShowDialog();
 			this.Close();
 		}
-	}
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }
